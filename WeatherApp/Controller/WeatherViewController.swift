@@ -1,37 +1,33 @@
 import UIKit
 import GooglePlaces
 import Charts
-class WeatherViewController: UIViewController {
+class WeatherViewController: UIViewController,CLLocationManagerDelegate{
     @IBOutlet weak var lineChart : LineChartView!
-    var searchController: UISearchController!
     @IBOutlet var lat : UILabel!
     @IBOutlet var long : UILabel!
-    @IBOutlet var textView: UITextView!
-    @IBOutlet var imageView1: UIImageView!
-    @IBOutlet var imageView2: UIImageView!
-    @IBOutlet var imageView3: UIImageView!
+    @IBOutlet var activityIndicator : UIActivityIndicatorView! = UIActivityIndicatorView()
     
-    
-    func setChartValues(_ count : Int = 20) {
-        let values = (0..<count).map { (i) -> ChartDataEntry in
-            let val = Double(arc4random_uniform(UInt32(count)) + 3)
-            return ChartDataEntry(x: Double(i), y: val)
-        }
-        
-        let set1 = LineChartDataSet(values: values, label: "DataSet 1")
-        let data = LineChartData(dataSet: set1)
-    
-        self.lineChart.data = data
-        
-    }
+    var locationManager = CLLocationManager()
+    var searchController: UISearchController!
+    let chart = ChartUtility.init()
+    let service = WebServiceUtility.init()
 
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var resultsViewController: GMSAutocompleteResultsViewController?
-        var placesClient : GMSPlacesClient = GMSPlacesClient.shared()
 
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+        
+        var resultsViewController: GMSAutocompleteResultsViewController?
+        
         resultsViewController = GMSAutocompleteResultsViewController()
         resultsViewController?.delegate = self
         
@@ -66,99 +62,37 @@ extension WeatherViewController: GMSAutocompleteResultsViewControllerDelegate {
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
                            didAutocompleteWith place: GMSPlace) {
         searchController?.isActive = false
-        //print(place.photos)
         lat.text = String(place.coordinate.latitude);
         long.text = String(place.coordinate.longitude);
-        let service = WebServiceUtility.init()
-       
-        service.request(long:place.coordinate.longitude,lat:place.coordinate.latitude){
-            result in
-            var timeLbl : [String] = []
-            var tempLbl : [Double] = []
-            let list = result["list"] as! NSArray
-            var outerCount : NSInteger = 0
-            var innerCount : NSInteger = 0
+        
+        self.service.request(long:place.coordinate.longitude,lat:place.coordinate.latitude){
+           time,temp in
+           let timeLbl : [String] = time
+           let tempLbl : [Double] = temp
+           self.chart.drawChart(first: timeLbl, second: tempLbl, chart: self.lineChart)
 
-            for item in list{
-                if outerCount % 2 == 0{
-                    if innerCount % 2 == 0{
-                        let NSItem = item as! NSDictionary
-                        let NSMain = NSItem["main"] as! NSDictionary
-                        let dateString = NSItem.object(forKey: "dt_txt") as! String
-                        let r = dateString.index(dateString.startIndex, offsetBy: 5)..<dateString.index(dateString.endIndex, offsetBy: -3)
-                        timeLbl.append(String(dateString[r]))
-                        tempLbl.append(NSMain.object(forKey: "temp") as! Double)
-                    }
-                    innerCount = innerCount + 1
-                }
-                outerCount = outerCount + 1
-            }
-            var chartEntries : [ChartDataEntry] = []
-            self.lineChart.xAxis.valueFormatter = DefaultAxisValueFormatter(block: {(index, _) in
-                return timeLbl[Int(index)]
-            })
-            for i in 0..<timeLbl.count{
-                let newEntry = ChartDataEntry( x:Double(i),y:tempLbl[i])
-                chartEntries.append(newEntry)
-            }
-            
-            let set: LineChartDataSet = LineChartDataSet(values: chartEntries, label: "°C")
-            set.setColor(NSUIColor.blue, alpha: CGFloat(1))
-            set.circleColors = [NSUIColor.blue]
-            set.circleRadius = 3
-            set.mode = LineChartDataSet.Mode.cubicBezier
-           
-            let data: LineChartData = LineChartData(dataSet: set)
-            self.lineChart.xAxis.labelPosition = XAxis.LabelPosition.bottom
-            self.lineChart.xAxis.labelRotationAngle = -70
-            self.lineChart.xAxis.valueFormatter = DefaultAxisValueFormatter(block: {(index, _) in
-                return timeLbl[Int(index)]
-            })
-            
-            self.lineChart.data?.notifyDataChanged()
-            self.lineChart.notifyDataSetChanged()
-            
-            self.lineChart.xAxis.setLabelCount(timeLbl.count, force: true)
-            self.lineChart.data = data
         }
+
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-       
-        
-        
-        //let photoMetadata1: GMSPlacePhotoMetadata = place.photos![0]
-        //let photoMetadata2: GMSPlacePhotoMetadata = place.photos![1]
-       // let photoMetadata3: GMSPlacePhotoMetadata = place.photos![2]
-        
-        //print("attributes,",photoMetadata)
-        // Call loadPlacePhoto to display the bitmap and attribution.
-        
-       /* self.placesClient.loadPlacePhoto(photoMetadata1, callback: { (photo, error) -> Void in
-            if let error = error {
-                // TODO: Handle the error.
-                print("Error loading photo metadata: \(error.localizedDescription)")
-                return
-            } else {
-                self.imageView1?.image = photo;
+        let userLocation = locations[0]
+      
+        self.service.request(long:userLocation.coordinate.longitude,lat:userLocation.coordinate.latitude){
+            time,temp in
+            let timeLbl : [String] = time
+            let tempLbl : [Double] = temp
+            
+            
+            DispatchQueue.main.sync {
+                self.activityIndicator.isHidden = true
+                self.activityIndicator.stopAnimating()
             }
-        })
-        self.placesClient.loadPlacePhoto(photoMetadata2, callback: { (photo, error) -> Void in
-            if let error = error {
-                // TODO: Handle the error.
-                print("Error loading photo metadata: \(error.localizedDescription)")
-                return
-            } else {
-                self.imageView2?.image = photo;
-            }
-        })
-        self.placesClient.loadPlacePhoto(photoMetadata3, callback: { (photo, error) -> Void in
-            if let error = error {
-                // TODO: Handle the error.
-                print("Error loading photo metadata: \(error.localizedDescription)")
-                return
-            } else {
-                self.imageView3?.image = photo;
-            }
-        })*/
+            
+            self.chart.drawChart(first: timeLbl, second: tempLbl, chart: self.lineChart)
+            
+        }
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
