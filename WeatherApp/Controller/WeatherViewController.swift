@@ -65,6 +65,8 @@ extension WeatherViewController: GMSAutocompleteResultsViewControllerDelegate {
         lat.text = String(place.coordinate.latitude);
         long.text = String(place.coordinate.longitude);
         
+        self.lineChart.isHidden = true
+
         self.service.request(long:place.coordinate.longitude,lat:place.coordinate.latitude){
            time,temp in
            let timeLbl : [String] = time

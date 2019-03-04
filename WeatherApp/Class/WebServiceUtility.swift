@@ -10,8 +10,6 @@ import UIKit
 
 class WebServiceUtility: NSObject {
     
-    
-    
     func request(long:Double,lat:Double,handler: @escaping ([String],[Double])->()){
         let url = URL(string:"https://api.openweathermap.org/data/2.5/forecast?units=metric&lat=\(lat)&lon=\(long)&appid=7d2f8fdc5ef5aba4d3197fc3bddd874e")!
         let task = URLSession.shared.dataTask(with: url){ (data, response, error) in
@@ -24,7 +22,6 @@ class WebServiceUtility: NSObject {
                     do{
                         let jsonResult = try JSONSerialization.jsonObject(with: urlContent, options: JSONSerialization.ReadingOptions.mutableContainers)
                         
-                        // I would not recommend to use NSDictionary, try using Swift types instead
                         guard let newValue = jsonResult as? NSDictionary else {
                             print("invalid format")
                             return

@@ -127,7 +127,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="NPX-SG-F13"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="E5F-2o-CPX"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="second" id="E5F-2o-CPX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bNk-xZ-L0r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

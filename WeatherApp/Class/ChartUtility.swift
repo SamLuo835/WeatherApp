@@ -18,8 +18,8 @@ class ChartUtility: NSObject {
             chartEntries.append(newEntry)
         }
         let set: LineChartDataSet = LineChartDataSet(values: chartEntries, label: "°C")
-        set.setColor(NSUIColor.blue, alpha: CGFloat(1))
-        set.circleColors = [NSUIColor.blue]
+        //set.setColor(NSUIColor.blue, alpha: CGFloat(1))
+        //set.circleColors = [NSUIColor.blue]
         set.circleRadius = 3
         set.mode = LineChartDataSet.Mode.cubicBezier
         
@@ -32,8 +32,9 @@ class ChartUtility: NSObject {
         
         chart.chartDescription?.text = "°C"
         chart.xAxis.setLabelCount(second.count, force: true)
-        chart.data = data
         DispatchQueue.main.sync {
+            chart.data = data
+            chart.isHidden = false
             chart.setNeedsDisplay()
         }
     }
