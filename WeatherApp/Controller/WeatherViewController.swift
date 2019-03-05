@@ -66,13 +66,17 @@ extension WeatherViewController: GMSAutocompleteResultsViewControllerDelegate {
         long.text = String(place.coordinate.longitude);
         
         self.lineChart.isHidden = true
-
+        self.activityIndicator.isHidden = false
+        self.activityIndicator.startAnimating()
         self.service.request(long:place.coordinate.longitude,lat:place.coordinate.latitude){
            time,temp in
            let timeLbl : [String] = time
            let tempLbl : [Double] = temp
            self.chart.drawChart(first: timeLbl, second: tempLbl, chart: self.lineChart)
-
+            DispatchQueue.main.sync {
+                self.activityIndicator.isHidden = true
+                self.activityIndicator.stopAnimating()
+            }
         }
 
     }

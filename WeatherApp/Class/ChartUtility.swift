@@ -17,13 +17,14 @@ class ChartUtility: NSObject {
             let newEntry = ChartDataEntry( x:Double(i),y:second[i])
             chartEntries.append(newEntry)
         }
-        let set: LineChartDataSet = LineChartDataSet(values: chartEntries, label: "°C")
+        let set: LineChartDataSet = LineChartDataSet(values: chartEntries, label: nil)
         //set.setColor(NSUIColor.blue, alpha: CGFloat(1))
         //set.circleColors = [NSUIColor.blue]
         set.circleRadius = 3
         set.mode = LineChartDataSet.Mode.cubicBezier
         
         let data: LineChartData = LineChartData(dataSet: set)
+        chart.legend.enabled = false
         chart.xAxis.labelPosition = XAxis.LabelPosition.bottom
         chart.xAxis.labelRotationAngle = -70
         chart.xAxis.valueFormatter = DefaultAxisValueFormatter(block: {(index, _) in
@@ -31,6 +32,7 @@ class ChartUtility: NSObject {
         })
         
         chart.chartDescription?.text = "°C"
+        chart.chartDescription?.font = UIFont.systemFont(ofSize: 15,weight: .bold)
         chart.xAxis.setLabelCount(second.count, force: true)
         DispatchQueue.main.sync {
             chart.data = data
