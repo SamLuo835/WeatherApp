@@ -5,7 +5,7 @@ class WeatherViewController: UIViewController,CLLocationManagerDelegate{
     @IBOutlet weak var lineChart : LineChartView!
     @IBOutlet var lat : UILabel!
     @IBOutlet var long : UILabel!
-    @IBOutlet var activityIndicator : UIActivityIndicatorView! = UIActivityIndicatorView()
+    @IBOutlet var activityIndicator : UIActivityIndicatorView!
     
     var locationManager = CLLocationManager()
     var searchController: UISearchController!

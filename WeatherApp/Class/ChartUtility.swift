@@ -23,7 +23,8 @@ class ChartUtility: NSObject {
             chartEntries.append(newEntry)
         }
         let set: LineChartDataSet = LineChartDataSet(values: chartEntries, label: nil)
-       
+        set.setColor(NSUIColor.gray, alpha: CGFloat(1))
+        set.circleColors = [NSUIColor.gray]
         set.circleRadius = 3
         set.mode = LineChartDataSet.Mode.cubicBezier
         
