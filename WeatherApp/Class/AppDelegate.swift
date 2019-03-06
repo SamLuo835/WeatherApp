@@ -12,11 +12,18 @@ import GooglePlaces
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    var celBoolean : Bool = true
+    var disBoolean : Bool = true
+    var apiKey : String = ""
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        GMSPlacesClient.provideAPIKey("AIzaSyACDlOhJkX6sZ5D4rml43fgdHSdRw0z68I")
+        
+        apiKey = "AIzaSyACDlOhJkX6sZ5D4rml43fgdHSdRw0z68I"
+        GMSPlacesClient.provideAPIKey(apiKey)
         // Override point for customization after application launch.
+        celBoolean = true
+        disBoolean = true
+        
         return true
     }
 

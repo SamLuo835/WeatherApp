@@ -10,8 +10,13 @@ import UIKit
 import Charts
 class ChartUtility: NSObject {
 
+    let mainDelegate = UIApplication.shared.delegate as! AppDelegate
+
     
     func drawChart(first:[String],second:[Double],chart:LineChartView){
+        
+        
+        
         var chartEntries : [ChartDataEntry] = []
         for i in 0..<first.count{
             let newEntry = ChartDataEntry( x:Double(i),y:second[i])
@@ -31,7 +36,10 @@ class ChartUtility: NSObject {
             return first[Int(index)]
         })
         
-        chart.chartDescription?.text = "°C"
+        if(mainDelegate.celBoolean){
+            chart.chartDescription?.text = "°C"
+        }
+        else {chart.chartDescription?.text = "°F"}
         chart.chartDescription?.font = UIFont.systemFont(ofSize: 15,weight: .bold)
         chart.xAxis.setLabelCount(second.count, force: true)
         DispatchQueue.main.sync {

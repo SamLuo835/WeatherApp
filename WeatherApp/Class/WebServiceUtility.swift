@@ -9,9 +9,17 @@
 import UIKit
 
 class WebServiceUtility: NSObject {
-    
+    let mainDelegate = UIApplication.shared.delegate as! AppDelegate
+
     func request(long:Double,lat:Double,handler: @escaping ([String],[Double])->()){
-        let url = URL(string:"https://api.openweathermap.org/data/2.5/forecast?units=metric&lat=\(lat)&lon=\(long)&appid=7d2f8fdc5ef5aba4d3197fc3bddd874e")!
+        var units = "metric"
+        
+        if(mainDelegate.celBoolean){
+            units = "metric"
+        }
+        else {units = "imperial"}
+        
+        let url = URL(string:"https://api.openweathermap.org/data/2.5/forecast?units=\(units)&lat=\(lat)&lon=\(long)&appid=7d2f8fdc5ef5aba4d3197fc3bddd874e")!
         let task = URLSession.shared.dataTask(with: url){ (data, response, error) in
             if error != nil {
                 print("some error occured")

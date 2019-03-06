@@ -12,7 +12,7 @@ class WeatherViewController: UIViewController,CLLocationManagerDelegate{
     let chart = ChartUtility.init()
     let service = WebServiceUtility.init()
 
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 
