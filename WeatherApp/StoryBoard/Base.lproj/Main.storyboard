@@ -37,22 +37,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dvC-SS-bJd">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Long" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rjo-sf-3vM">
-                                                <rect key="frame" x="34" y="447" width="108" height="53"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lat" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92m-L0-zwR">
-                                                <rect key="frame" x="34" y="382" width="92" height="43"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="43" id="9LV-cl-7lF"/>
-                                                    <constraint firstAttribute="width" constant="92" id="fk0-Zv-FUf"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="TVU-kp-TRj">
                                                 <rect key="frame" x="171" y="220" width="37" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -65,14 +49,10 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="92m-L0-zwR" firstAttribute="leading" secondItem="Rjo-sf-3vM" secondAttribute="leading" id="HFS-S5-SYa"/>
-                                            <constraint firstItem="Rjo-sf-3vM" firstAttribute="top" secondItem="92m-L0-zwR" secondAttribute="bottom" constant="22" id="P0a-z3-R4H"/>
                                             <constraint firstItem="CvE-Ge-xYA" firstAttribute="leading" secondItem="dvC-SS-bJd" secondAttribute="leading" constant="5" id="QGw-ED-rGN"/>
                                             <constraint firstAttribute="height" constant="1000" id="R1c-Qg-I7O"/>
                                             <constraint firstAttribute="bottom" secondItem="CvE-Ge-xYA" secondAttribute="bottom" constant="666" id="fgf-AA-gD4"/>
-                                            <constraint firstItem="92m-L0-zwR" firstAttribute="top" secondItem="CvE-Ge-xYA" secondAttribute="bottom" constant="48" id="hgy-dC-KKS"/>
                                             <constraint firstAttribute="trailing" secondItem="CvE-Ge-xYA" secondAttribute="trailing" constant="5" id="kRA-8V-vEK"/>
-                                            <constraint firstItem="92m-L0-zwR" firstAttribute="leading" secondItem="dvC-SS-bJd" secondAttribute="leading" constant="34" id="pha-2U-fl9"/>
                                             <constraint firstItem="CvE-Ge-xYA" firstAttribute="top" secondItem="dvC-SS-bJd" secondAttribute="top" constant="57" id="qNk-Tw-UG3"/>
                                         </constraints>
                                     </view>
@@ -107,9 +87,7 @@
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="activityIndicator" destination="TVU-kp-TRj" id="dW4-Ch-X81"/>
-                        <outlet property="lat" destination="92m-L0-zwR" id="lKR-Tq-z5P"/>
                         <outlet property="lineChart" destination="CvE-Ge-xYA" id="KYx-YL-ToM"/>
-                        <outlet property="long" destination="Rjo-sf-3vM" id="sXu-uz-NYM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>

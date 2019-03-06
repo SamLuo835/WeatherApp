@@ -62,8 +62,8 @@ extension WeatherViewController: GMSAutocompleteResultsViewControllerDelegate {
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
                            didAutocompleteWith place: GMSPlace) {
         searchController?.isActive = false
-        lat.text = String(place.coordinate.latitude);
-        long.text = String(place.coordinate.longitude);
+        //lat.text = String(place.coordinate.latitude);
+        //long.text = String(place.coordinate.longitude);
         
         self.lineChart.isHidden = true
         self.activityIndicator.isHidden = false
