@@ -32,7 +32,7 @@ class WeatherViewController: UIViewController,CLLocationManagerDelegate{
         resultsViewController?.delegate = self
         
         let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.name.rawValue) |
-            UInt(GMSPlaceField.coordinate.rawValue) | UInt(GMSPlaceField.photos.rawValue))!
+            UInt(GMSPlaceField.coordinate.rawValue) | UInt(GMSPlaceField.photos.rawValue)|UInt(GMSPlaceField.placeID.rawValue))!
         resultsViewController?.placeFields = fields
         
         // Specify a filter.
@@ -64,7 +64,7 @@ extension WeatherViewController: GMSAutocompleteResultsViewControllerDelegate {
         searchController?.isActive = false
         //lat.text = String(place.coordinate.latitude);
         //long.text = String(place.coordinate.longitude);
-        
+        //Aquire the placeId like (place.placeID)
         self.lineChart.isHidden = true
         self.activityIndicator.isHidden = false
         self.activityIndicator.startAnimating()
