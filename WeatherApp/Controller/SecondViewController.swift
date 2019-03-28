@@ -8,33 +8,40 @@
 
 import UIKit
 import Charts
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    @IBOutlet weak var lineChartView: LineChartView!
+    let mainDeleget = UIApplication.shared.delegate as! AppDelegate
     
-    @IBAction func randomize(_ sender: UIButton) {
-        let count = Int(arc4random_uniform(20) + 3)
-        setChartValues(count)
+    @IBAction func unwindToFavioriteViewController(sender: UIStoryboardSegue!) {}
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return mainDeleget.faviouriteCities.count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let tableCell = tableView.dequeueReusableCell(withIdentifier: "cell") ?? UITableViewCell()
+        let rowNum = indexPath.row
+        tableCell.textLabel?.text = mainDeleget.faviouriteCities[rowNum].name
+        
+        tableCell.accessoryType = .disclosureIndicator
+        return tableCell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            let mainDelgete = UIApplication.shared.delegate as! AppDelegate
+            mainDelgete.cityName = mainDeleget.faviouriteCities[indexPath.row].name!
+            performSegue(withIdentifier: "cityPicturesViewController", sender: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setChartValues()
     }
     
-    func setChartValues(_ count : Int = 20) {
-        let values = (0..<count).map { (i) -> ChartDataEntry in
-            let val = Double(arc4random_uniform(UInt32(count)) + 3)
-            return ChartDataEntry(x: Double(i), y: val)
-        }
-        
-        let set1 = LineChartDataSet(values: values, label: "DataSet 1")
-        let data = LineChartData(dataSet: set1)
-        
-        self.lineChartView.data = data
-        
-    }
-
 
 }
 
