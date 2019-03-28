@@ -11,7 +11,16 @@ class WeatherViewController: UIViewController,CLLocationManagerDelegate{
     var searchController: UISearchController!
     let chart = ChartUtility.init()
     let service = WebServiceUtility.init()
-
+    
+    var searchResult : String! = nil
+    
+    // Faviourite a location
+    @IBAction func faviourite() {
+        print("Add to faviorite")
+        if searchResult != nil {
+            print("address is: \(searchResult)")
+        }
+    }
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +74,7 @@ extension WeatherViewController: GMSAutocompleteResultsViewControllerDelegate {
         //lat.text = String(place.coordinate.latitude);
         //long.text = String(place.coordinate.longitude);
         //Aquire the placeId like (place.placeID)
+        searchResult = place.name
         self.lineChart.isHidden = true
         self.activityIndicator.isHidden = false
         self.activityIndicator.startAnimating()
@@ -115,4 +125,6 @@ extension WeatherViewController: GMSAutocompleteResultsViewControllerDelegate {
     func didUpdateAutocompletePredictions(forResultsController resultsController: GMSAutocompleteResultsViewController) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
+    
+  
 }
