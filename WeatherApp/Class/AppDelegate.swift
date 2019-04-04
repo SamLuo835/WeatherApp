@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var celBoolean : Bool = true
     var disBoolean : Bool = true
     var apiKey : String = ""
-    var dbName : String? = "Database.db"
+    var dbName : String? = "WeatherDB.db"
     var dbPath : String?
     var faviouriteCities : [City] = []
     var cityName : String = ""
@@ -75,7 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     let lng : Double = Double(sqlite3_column_double(queryStatement, 4))
                     
                     let placeId = String(cString: cPlaceId!)
-                    let name = String(cString: cPlaceId!)
+                    let name = String(cString: cName!)
                     
                     let city : City = City.init()
                     city.initWithData(id: id, placeId: placeId, name: name, lat: lat, lng: lng)

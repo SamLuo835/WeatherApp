@@ -12,15 +12,15 @@ class WeatherViewController: UIViewController,CLLocationManagerDelegate{
     let chart = ChartUtility.init()
     let service = WebServiceUtility.init()
     
-    var searchResult : String = ""
+    var place: GMSPlace!
     
     // Faviourite a location
     @IBAction func faviourite() {
         print("Add to faviorite")
-        if searchResult != "" {
+        if place != nil {
             let city : City = City.init()
             // this data should be populated once the api call finishes
-            city.initWithData(id: 0, placeId: "placeID1", name: searchResult, lat: 10.2, lng: 10.2)
+            city.initWithData(id: 0, placeId: place.placeID!, name: place.name!, lat: place.coordinate.latitude, lng: place.coordinate.longitude)
             
             let mainDelegete = UIApplication.shared.delegate as! AppDelegate
             
@@ -82,10 +82,8 @@ extension WeatherViewController: GMSAutocompleteResultsViewControllerDelegate {
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
                            didAutocompleteWith place: GMSPlace) {
         searchController?.isActive = false
-        //lat.text = String(place.coordinate.latitude);
-        //long.text = String(place.coordinate.longitude);
-        //Aquire the placeId like (place.placeID)
-        searchResult = place.name!
+        
+        self.place = place
         self.lineChart.isHidden = true
         self.activityIndicator.isHidden = false
         self.activityIndicator.startAnimating()

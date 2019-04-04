@@ -8,6 +8,8 @@
 
 import UIKit
 import Charts
+
+// TODO:  Rename to faviourite view controller
 class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     let mainDeleget = UIApplication.shared.delegate as! AppDelegate
