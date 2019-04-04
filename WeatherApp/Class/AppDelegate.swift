@@ -78,7 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     let name = String(cString: cPlaceId!)
                     
                     let city : City = City.init()
-                    city.initWithData(id: id, placeId: placeId, name: "name", lat: lat, lng: lng)
+                    city.initWithData(id: id, placeId: placeId, name: name, lat: lat, lng: lng)
                     faviouriteCities.append(city)
                     print("Query Result")
                     print("\(id) | \(placeId) | \(name) | \(lat) | \(lng) ")
@@ -109,9 +109,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let name = city.name! as NSString
                 
                 sqlite3_bind_text(insertStatement, 1, placeId.utf8String, -1, nil)
-                sqlite3_bind_text(insertStatement, 1, name.utf8String, -1, nil)
-                sqlite3_bind_double(insertStatement, 4, city.lat!)
-                sqlite3_bind_double(insertStatement, 5, city.lng!)
+                sqlite3_bind_text(insertStatement, 2, name.utf8String, -1, nil)
+                sqlite3_bind_double(insertStatement, 3, city.lat!)
+                sqlite3_bind_double(insertStatement, 4, city.lng!)
                 
                 if sqlite3_step(insertStatement) != SQLITE_DONE {
                     isSuccess = false
