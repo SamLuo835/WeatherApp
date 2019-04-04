@@ -30,6 +30,7 @@ class WeatherViewController: UIViewController,CLLocationManagerDelegate{
                 print("Failed to add row to db")
             }
             print("SUCCESS: \(isSuccess)")
+            mainDelegete.readDataFromDB()
         }
     }
   
