@@ -19,8 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var apiKey : String = ""
     var dbName : String? = "WeatherDB.db"
     var dbPath : String?
+    var city : City!
     var faviouriteCities : [City] = []
-    var cityName : String = ""
+    
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         

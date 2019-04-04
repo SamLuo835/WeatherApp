@@ -40,7 +40,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             let mainDelgete = UIApplication.shared.delegate as! AppDelegate
-            mainDelgete.cityName = faviouriteCities[indexPath.row].name!
+            mainDelgete.city = faviouriteCities[indexPath.row]
             performSegue(withIdentifier: "cityPicturesViewController", sender: nil)
     }
     

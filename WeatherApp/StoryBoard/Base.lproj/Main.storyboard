@@ -272,8 +272,20 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Js1-st-Toe">
+                                <rect key="frame" x="12" y="132" width="173" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IAn-uO-MbA">
+                                <rect key="frame" x="187" y="132" width="182" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uWS-Hr-n1O">
+                                <rect key="frame" x="67" y="277" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show city pic " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhj-fZ-Jd1">
-                                <rect key="frame" x="0.0" y="82" width="118" height="26"/>
+                                <rect key="frame" x="89" y="78" width="196" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
                                 <nil key="textColor"/>
@@ -284,7 +296,10 @@
                         <viewLayoutGuide key="safeArea" id="WOh-U2-96j"/>
                     </view>
                     <connections>
+                        <outlet property="firstImg" destination="Js1-st-Toe" id="UjM-j7-YSg"/>
                         <outlet property="lblCityName" destination="qhj-fZ-Jd1" id="nRy-bS-HK6"/>
+                        <outlet property="secImg" destination="IAn-uO-MbA" id="UxN-QD-1RA"/>
+                        <outlet property="thirdImg" destination="uWS-Hr-n1O" id="faW-ta-X5t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6AH-e8-e6O" userLabel="First Responder" sceneMemberID="firstResponder"/>
