@@ -243,6 +243,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="cPa-gy-q4n"/>
                     <connections>
+                        <outlet property="tableView" destination="sN3-b2-e08" id="9qA-8K-WRI"/>
                         <segue destination="hEp-TM-f6y" kind="presentation" identifier="cityPicturesViewController" id="jiV-9c-ase"/>
                     </connections>
                 </viewController>
@@ -295,7 +296,7 @@
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                    <tabBar key="tabBar" tag="3" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>

@@ -14,11 +14,15 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     let mainDelegete = UIApplication.shared.delegate as! AppDelegate
     
+    var faviouriteCities : [City] = []
+    
+    @IBOutlet var tableView:UITableView!
+
     @IBAction func unwindToFavioriteViewController(sender: UIStoryboardSegue!) {}
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mainDelegete.faviouriteCities.count
+        return faviouriteCities.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -28,7 +32,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let tableCell = tableView.dequeueReusableCell(withIdentifier: "cell") ?? UITableViewCell()
         let rowNum = indexPath.row
-        tableCell.textLabel?.text = mainDelegete.faviouriteCities[rowNum].name
+        tableCell.textLabel?.text = faviouriteCities[rowNum].name
         
         tableCell.accessoryType = .disclosureIndicator
         return tableCell
@@ -36,13 +40,21 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             let mainDelgete = UIApplication.shared.delegate as! AppDelegate
-            mainDelgete.cityName = mainDelegete.faviouriteCities[indexPath.row].name!
+            mainDelgete.cityName = faviouriteCities[indexPath.row].name!
             performSegue(withIdentifier: "cityPicturesViewController", sender: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainDelegete.readDataFromDB()
+        faviouriteCities = mainDelegete.readDataFromDB()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        faviouriteCities.removeAll();
+        faviouriteCities = mainDelegete.readDataFromDB()
+        
+        DispatchQueue.main.async { self.tableView.reloadData() }
     }
 }
 

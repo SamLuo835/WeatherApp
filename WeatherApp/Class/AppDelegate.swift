@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // will populate the favioriteCityArray
-    func readDataFromDB() {
+    func readDataFromDB()-> Array<City> {
         faviouriteCities.removeAll()
         
         var db : OpaquePointer? = nil
@@ -86,6 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
             } else {
                 print("Failed to QUERY DB")
+
             }
             sqlite3_finalize(queryStatement)
             sqlite3_close(db)
@@ -93,6 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             print("Failed to OPEN DB")
         }
+        return faviouriteCities
     }
     
     // DB insert
