@@ -7,6 +7,20 @@ class WeatherViewController: UIViewController,CLLocationManagerDelegate{
     @IBOutlet var long : UILabel!
     @IBOutlet var activityIndicator : UIActivityIndicatorView!
     
+    // Curr Weather
+    @IBOutlet var city: UILabel!
+    @IBOutlet var main: UILabel!
+    @IBOutlet var temp: UILabel!
+    @IBOutlet var minTemp: UILabel!
+    @IBOutlet var maxTemp: UILabel!
+    @IBOutlet var clouds: UILabel!
+    @IBOutlet var humidity: UILabel!
+    @IBOutlet var pressure: UILabel!
+    @IBOutlet var windSp: UILabel!
+    @IBOutlet var windDeg: UILabel!
+    @IBOutlet var sunrise: UILabel!
+    @IBOutlet var sunset: UILabel!
+    
     var locationManager = CLLocationManager()
     var searchController: UISearchController!
     let chart = ChartUtility.init()
@@ -88,7 +102,7 @@ extension WeatherViewController: GMSAutocompleteResultsViewControllerDelegate {
         self.lineChart.isHidden = true
         self.activityIndicator.isHidden = false
         self.activityIndicator.startAnimating()
-        self.service.request(long:place.coordinate.longitude,lat:place.coordinate.latitude){
+        self.service.chartRequest(long:place.coordinate.longitude,lat:place.coordinate.latitude){
            time,temp in
            let timeLbl : [String] = time
            let tempLbl : [Double] = temp
@@ -105,7 +119,7 @@ extension WeatherViewController: GMSAutocompleteResultsViewControllerDelegate {
         
         let userLocation = locations[0]
       
-        self.service.request(long:userLocation.coordinate.longitude,lat:userLocation.coordinate.latitude){
+        self.service.chartRequest(long:userLocation.coordinate.longitude,lat:userLocation.coordinate.latitude){
             time,temp in
             let timeLbl : [String] = time
             let tempLbl : [Double] = temp
@@ -117,6 +131,31 @@ extension WeatherViewController: GMSAutocompleteResultsViewControllerDelegate {
             }
             
             self.chart.drawChart(first: timeLbl, second: tempLbl, chart: self.lineChart)
+            
+        }
+        
+        self.service.currentWeatherRequest(long:userLocation.coordinate.longitude,lat:userLocation.coordinate.latitude) {
+            packagedWeather in
+            
+            //let cloud = currentWeather["clouds"] as! NSDictionary
+            
+            DispatchQueue.main.sync {
+                self.city.text = packagedWeather[0] as! String
+                //self.main.text = packagedWeather[1] as! String
+                self.temp.text = packagedWeather[2] as! String
+                self.minTemp.text = packagedWeather[3] as! String
+                self.maxTemp.text = packagedWeather[4] as! String
+                self.clouds.text = packagedWeather[5] as! String
+                self.humidity.text = packagedWeather[6] as! String
+                self.pressure.text = packagedWeather[7] as! String
+                self.windSp.text = packagedWeather[8] as! String
+                self.windDeg.text = packagedWeather[9] as! String
+                self.sunrise.text = packagedWeather[10] as! String
+                self.sunset.text = packagedWeather[11] as! String
+                print(packagedWeather)
+                
+                
+            }
             
         }
     }
