@@ -9,11 +9,11 @@
 import UIKit
 import AVFoundation
 
-class MusicUtility: NSObject {
+class MusicUtility: NSObject, AVAudioPlayerDelegate {
     
     var backgroundMusicPlayer: AVAudioPlayer!
     
-    func playBackgroundMusic() {
+    func playBackgroundMusic() -> AVAudioPlayer {
         let soundURL = Bundle.main.path(forResource: "background_music", ofType: "mp3")
         let url = URL(fileURLWithPath: soundURL!)
         
@@ -25,6 +25,12 @@ class MusicUtility: NSObject {
         backgroundMusicPlayer?.volume = 3
         backgroundMusicPlayer?.numberOfLoops = -1
         backgroundMusicPlayer?.play()
+        
+        return backgroundMusicPlayer
+    }
+    
+    func changeVolume(vol: Float) {
+        backgroundMusicPlayer?.volume = vol
     }
 
 }

@@ -17,11 +17,10 @@ class SettingViewController: UIViewController {
     @IBOutlet var volSlider : UISlider!
     var mainDelegate : AppDelegate!
     
-    var music = MusicUtility.init()
     
     @IBAction func volumeDidChange(sender: UISlider)
     {
-        self.music.backgroundMusicPlayer?.volume = volSlider.value
+        mainDelegate.music.changeVolume(vol: volSlider.value)
     }
     
     @IBAction func unwindToSetting(sender: UIStoryboardSegue!) {}
