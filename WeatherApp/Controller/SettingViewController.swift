@@ -10,13 +10,13 @@ import UIKit
 
 class SettingViewController: UIViewController {
 
-    
     @IBOutlet var celLbl: UILabel!
     @IBOutlet var feLbl: UILabel!
     @IBOutlet var kmLbl : UILabel!
     @IBOutlet var miLbl : UILabel!
     var mainDelegate : AppDelegate!
-    
+    let delegete = UIApplication.shared.delegate as! AppDelegate
+
     
     @IBAction func tempSwitch(sender:UISwitch){
         if(sender.isOn){
@@ -30,6 +30,12 @@ class SettingViewController: UIViewController {
             feLbl.textColor = .black
             celLbl.textColor = .lightGray
         }
+    }
+    
+    
+    @IBAction func removeTable(sender:UIButton){
+       delegete.deleteAll()
+        
     }
     
     @IBAction func disSwitch(sender:UISwitch){
