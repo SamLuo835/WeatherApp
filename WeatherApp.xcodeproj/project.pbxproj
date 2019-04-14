@@ -24,6 +24,7 @@
 		5C37FD92224C655000382D94 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C37FD90224C655000382D94 /* libsqlite3.0.tbd */; };
 		5C37FD93224C655000382D94 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C37FD91224C655000382D94 /* libsqlite3.tbd */; };
 		5CC14CC322558A1C002AB515 /* WeatherDB.db in Resources */ = {isa = PBXBuildFile; fileRef = 5CC14CC222558A1C002AB515 /* WeatherDB.db */; };
+		7836BACE2263B871002553CC /* CurrWeatherServiceUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836BACD2263B871002553CC /* CurrWeatherServiceUtility.swift */; };
 		93BB2A4BF320773C29C424B1 /* libPods-WeatherApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CDFC284B5F61218DDEDA0F1 /* libPods-WeatherApp.a */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		5C37FD90224C655000382D94 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		5C37FD91224C655000382D94 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		5CC14CC222558A1C002AB515 /* WeatherDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = WeatherDB.db; sourceTree = "<group>"; };
+		7836BACD2263B871002553CC /* CurrWeatherServiceUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrWeatherServiceUtility.swift; sourceTree = "<group>"; };
 		D7906B00510F315D30F210BD /* Pods-WeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.release.xcconfig"; path = "Target Support Files/Pods-WeatherApp/Pods-WeatherApp.release.xcconfig"; sourceTree = "<group>"; };
 		DB2AA1BFCEDCA5743CB3CF3E /* Pods-WeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.debug.xcconfig"; path = "Target Support Files/Pods-WeatherApp/Pods-WeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +129,7 @@
 				22E8AAB9222D8F5900BE3D63 /* ChartUtility.swift */,
 				22E8AAE1222F795D00BE3D63 /* ConverterUtility.swift */,
 				5C37FD8E224C59AB00382D94 /* City.swift */,
+				7836BACD2263B871002553CC /* CurrWeatherServiceUtility.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				22E8AAE2222F795D00BE3D63 /* ConverterUtility.swift in Sources */,
 				22E8AABA222D8F5900BE3D63 /* ChartUtility.swift in Sources */,
 				22E8AADE222F434800BE3D63 /* SettingViewController.swift in Sources */,
+				7836BACE2263B871002553CC /* CurrWeatherServiceUtility.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

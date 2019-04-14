@@ -23,6 +23,7 @@ class SettingViewController: UIViewController {
             mainDelegate.celBoolean = true
             feLbl.textColor = .lightGray
             celLbl.textColor = .black
+            
         }
         else{
             mainDelegate.celBoolean = false

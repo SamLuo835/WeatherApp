@@ -9,6 +9,7 @@ class WeatherViewController: UIViewController,CLLocationManagerDelegate{
     
     // Curr Weather
     @IBOutlet var city: UILabel!
+    @IBOutlet var icon: UIImageView!
     @IBOutlet var main: UILabel!
     @IBOutlet var temp: UILabel!
     @IBOutlet var minTemp: UILabel!
@@ -18,6 +19,7 @@ class WeatherViewController: UIViewController,CLLocationManagerDelegate{
     @IBOutlet var pressure: UILabel!
     @IBOutlet var windSp: UILabel!
     @IBOutlet var windDeg: UILabel!
+    @IBOutlet var visibility: UILabel!
     @IBOutlet var sunrise: UILabel!
     @IBOutlet var sunset: UILabel!
     
@@ -25,6 +27,7 @@ class WeatherViewController: UIViewController,CLLocationManagerDelegate{
     var searchController: UISearchController!
     let chart = ChartUtility.init()
     let service = WebServiceUtility.init()
+    let currWeatherService = CurrWeatherServiceUtility.init()
     
     var place: GMSPlace!
     
@@ -112,6 +115,8 @@ extension WeatherViewController: GMSAutocompleteResultsViewControllerDelegate {
                 self.activityIndicator.stopAnimating()
             }
         }
+        
+        self.refreshCurrWeatherFields(long:place.coordinate.longitude,lat:place.coordinate.latitude);
 
     }
     
@@ -134,30 +139,41 @@ extension WeatherViewController: GMSAutocompleteResultsViewControllerDelegate {
             
         }
         
-        self.service.currentWeatherRequest(long:userLocation.coordinate.longitude,lat:userLocation.coordinate.latitude) {
-            packagedWeather in
-            
-            //let cloud = currentWeather["clouds"] as! NSDictionary
-            
-            DispatchQueue.main.sync {
-                self.city.text = packagedWeather[0] as! String
-                //self.main.text = packagedWeather[1] as! String
-                self.temp.text = packagedWeather[2] as! String
-                self.minTemp.text = packagedWeather[3] as! String
-                self.maxTemp.text = packagedWeather[4] as! String
-                self.clouds.text = packagedWeather[5] as! String
-                self.humidity.text = packagedWeather[6] as! String
-                self.pressure.text = packagedWeather[7] as! String
-                self.windSp.text = packagedWeather[8] as! String
-                self.windDeg.text = packagedWeather[9] as! String
-                self.sunrise.text = packagedWeather[10] as! String
-                self.sunset.text = packagedWeather[11] as! String
-                print(packagedWeather)
-                
-                
-            }
-            
-        }
+        self.refreshCurrWeatherFields(long:userLocation.coordinate.longitude,lat:userLocation.coordinate.latitude);
+    }
+    
+    func refreshCurrWeatherFields(long : Double,lat: Double) {
+        self.currWeatherService.currentWeatherRequest(long: long,lat: lat) {
+    packagedWeather in
+    
+    //let cloud = currentWeather["clouds"] as! NSDictionary
+    
+    DispatchQueue.main.sync {
+    self.city.text = packagedWeather["name"] as! String
+    self.main.text = packagedWeather["main"] as! String
+    self.temp.text = packagedWeather["temp"] as! String
+    self.minTemp.text = packagedWeather["min"] as! String
+    self.maxTemp.text = packagedWeather["max"] as! String
+    self.clouds.text = packagedWeather["clouds"] as! String
+    self.humidity.text = packagedWeather["humidity"] as! String
+    self.pressure.text = packagedWeather["pressure"] as! String
+    self.windSp.text = packagedWeather["windSp"] as! String
+    self.windDeg.text = packagedWeather["windDeg"] as! String
+    self.sunrise.text = packagedWeather["sunrise"] as! String
+    self.sunset.text = packagedWeather["sunset"] as! String
+//    self.visibility.text = packagedWeather["visibility"] as! String
+    
+    
+    let fileName = packagedWeather["icon"] as! String
+    
+    let url = URL(string: "https://openweathermap.org/img/w/" + fileName + ".png")
+    let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+    self.icon.image = UIImage(data: data!)
+    
+    print(packagedWeather)
+    }
+    
+    }
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,

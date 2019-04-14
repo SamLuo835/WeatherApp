@@ -15,8 +15,6 @@ class ChartUtility: NSObject {
     
     func drawChart(first:[String],second:[Double],chart:LineChartView){
         
-        
-        
         var chartEntries : [ChartDataEntry] = []
         for i in 0..<first.count{
             let newEntry = ChartDataEntry( x:Double(i),y:second[i])
