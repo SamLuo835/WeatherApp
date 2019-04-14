@@ -16,7 +16,7 @@ class SettingViewController: UIViewController {
     @IBOutlet var miLbl : UILabel!
     @IBOutlet var volSlider : UISlider!
     var mainDelegate : AppDelegate!
-<<<<<<< HEAD
+    
     var music = MusicUtility.init()
     
     @IBAction func volumeDidChange(sender: UISlider)
@@ -25,10 +25,7 @@ class SettingViewController: UIViewController {
     }
     
     @IBAction func unwindToSetting(sender: UIStoryboardSegue!) {}
-=======
     let delegete = UIApplication.shared.delegate as! AppDelegate
-
->>>>>>> 0113906c248f6e157efd63a8d1c2c6c559206e97
     
     @IBAction func tempSwitch(sender:UISwitch){
         if(sender.isOn){
