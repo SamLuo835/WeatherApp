@@ -100,6 +100,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return faviouriteCities
     }
     
+    
+    
+    func deleteAll() {
+        faviouriteCities.removeAll()
+        
+        var db : OpaquePointer? = nil
+        // Open db connection
+        if sqlite3_open(self.dbPath, &db) == SQLITE_OK {
+            print("Connection esablished with DB")
+            
+            var queryStatement : OpaquePointer? = nil
+            let queryStatementStr : String = "DELETE FROM Favourites"
+            
+            if sqlite3_prepare_v2(db, queryStatementStr, -1, &queryStatement, nil) == SQLITE_OK {
+                if sqlite3_step(queryStatement) == SQLITE_DONE {
+                    print("Successfully deleted row.")
+                } else {
+                    print("Could not delete row.")
+                }
+                
+            } else {
+                print("Failed to QUERY DB")
+                
+            }
+            sqlite3_finalize(queryStatement)
+            sqlite3_close(db)
+            
+        } else {
+            print("Failed to OPEN DB")
+        }
+    }
+    
     // DB insert
     func addFavouriteToDB(city: City ) -> Bool {
         var isSuccess = true
