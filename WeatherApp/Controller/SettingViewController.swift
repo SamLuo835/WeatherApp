@@ -15,8 +15,16 @@ class SettingViewController: UIViewController {
     @IBOutlet var feLbl: UILabel!
     @IBOutlet var kmLbl : UILabel!
     @IBOutlet var miLbl : UILabel!
+    @IBOutlet var volSlider : UISlider!
     var mainDelegate : AppDelegate!
+    var music = MusicUtility.init()
     
+    @IBAction func volumeDidChange(sender: UISlider)
+    {
+        self.music.backgroundMusicPlayer?.volume = volSlider.value
+    }
+    
+    @IBAction func unwindToSetting(sender: UIStoryboardSegue!) {}
     
     @IBAction func tempSwitch(sender:UISwitch){
         if(sender.isOn){

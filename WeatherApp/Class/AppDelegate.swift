@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var dbPath : String?
     var city : City!
     var faviouriteCities : [City] = []
+    var music = MusicUtility.init()
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -37,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         dbPath = documentDir.appending("/" + dbName!)
         checkAndCreateDB()
         readDataFromDB()
+        music.playBackgroundMusic()
         return true
     }
 

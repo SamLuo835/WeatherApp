@@ -25,6 +25,9 @@
 		5C37FD93224C655000382D94 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C37FD91224C655000382D94 /* libsqlite3.tbd */; };
 		5CC14CC322558A1C002AB515 /* WeatherDB.db in Resources */ = {isa = PBXBuildFile; fileRef = 5CC14CC222558A1C002AB515 /* WeatherDB.db */; };
 		7836BACE2263B871002553CC /* CurrWeatherServiceUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836BACD2263B871002553CC /* CurrWeatherServiceUtility.swift */; };
+		7836BAD02263D03A002553CC /* background_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7836BACF2263D03A002553CC /* background_music.mp3 */; };
+		7836BAD22263D09B002553CC /* MusicUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836BAD12263D09B002553CC /* MusicUtility.swift */; };
+		7836BAD52263D425002553CC /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836BAD42263D425002553CC /* WebViewController.swift */; };
 		93BB2A4BF320773C29C424B1 /* libPods-WeatherApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CDFC284B5F61218DDEDA0F1 /* libPods-WeatherApp.a */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +53,9 @@
 		5C37FD91224C655000382D94 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		5CC14CC222558A1C002AB515 /* WeatherDB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = WeatherDB.db; sourceTree = "<group>"; };
 		7836BACD2263B871002553CC /* CurrWeatherServiceUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrWeatherServiceUtility.swift; sourceTree = "<group>"; };
+		7836BACF2263D03A002553CC /* background_music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background_music.mp3; sourceTree = "<group>"; };
+		7836BAD12263D09B002553CC /* MusicUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicUtility.swift; sourceTree = "<group>"; };
+		7836BAD42263D425002553CC /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		D7906B00510F315D30F210BD /* Pods-WeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.release.xcconfig"; path = "Target Support Files/Pods-WeatherApp/Pods-WeatherApp.release.xcconfig"; sourceTree = "<group>"; };
 		DB2AA1BFCEDCA5743CB3CF3E /* Pods-WeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.debug.xcconfig"; path = "Target Support Files/Pods-WeatherApp/Pods-WeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +105,7 @@
 		22E8AA9E222CA0F100BE3D63 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				7836BAD32263D383002553CC /* Sounds */,
 				5C37FD89224C57A100382D94 /* Database */,
 				22E8AAB6222CA85300BE3D63 /* StoryBoard */,
 				22E8AAB5222CA84400BE3D63 /* Assest */,
@@ -117,6 +124,7 @@
 				22E8AAA1222CA0F100BE3D63 /* WeatherViewController.swift */,
 				22E8AADD222F434800BE3D63 /* SettingViewController.swift */,
 				5C37FD87224C508100382D94 /* CityPicturesViewController.swift */,
+				7836BAD42263D425002553CC /* WebViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -130,6 +138,7 @@
 				22E8AAE1222F795D00BE3D63 /* ConverterUtility.swift */,
 				5C37FD8E224C59AB00382D94 /* City.swift */,
 				7836BACD2263B871002553CC /* CurrWeatherServiceUtility.swift */,
+				7836BAD12263D09B002553CC /* MusicUtility.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -158,6 +167,14 @@
 				5CC14CC222558A1C002AB515 /* WeatherDB.db */,
 			);
 			path = Database;
+			sourceTree = "<group>";
+		};
+		7836BAD32263D383002553CC /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				7836BACF2263D03A002553CC /* background_music.mp3 */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 		CE99F2848C0D831FB4F447E0 /* Pods */ = {
@@ -229,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7836BAD02263D03A002553CC /* background_music.mp3 in Resources */,
 				22E8AAAC222CA0F300BE3D63 /* LaunchScreen.storyboard in Resources */,
 				22E8AAE0222F55E800BE3D63 /* loadScreen.png in Resources */,
 				5CC14CC322558A1C002AB515 /* WeatherDB.db in Resources */,
@@ -292,12 +310,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7836BAD22263D09B002553CC /* MusicUtility.swift in Sources */,
 				22E8AAA4222CA0F100BE3D63 /* SecondViewController.swift in Sources */,
 				22E8AAB8222CB50500BE3D63 /* WebServiceUtility.swift in Sources */,
 				5C37FD8F224C59AB00382D94 /* City.swift in Sources */,
 				22E8AAA0222CA0F100BE3D63 /* AppDelegate.swift in Sources */,
 				22E8AAA2222CA0F100BE3D63 /* WeatherViewController.swift in Sources */,
 				5C37FD88224C508100382D94 /* CityPicturesViewController.swift in Sources */,
+				7836BAD52263D425002553CC /* WebViewController.swift in Sources */,
 				22E8AAE2222F795D00BE3D63 /* ConverterUtility.swift in Sources */,
 				22E8AABA222D8F5900BE3D63 /* ChartUtility.swift in Sources */,
 				22E8AADE222F434800BE3D63 /* SettingViewController.swift in Sources */,
