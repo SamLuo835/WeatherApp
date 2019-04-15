@@ -7,7 +7,7 @@ class WeatherViewController: UIViewController,CLLocationManagerDelegate{
     @IBOutlet var long : UILabel!
     @IBOutlet var activityIndicator : UIActivityIndicatorView!
     
-    // Curr Weather
+    // Current Weather Labels
     @IBOutlet var city: UILabel!
     @IBOutlet var main: UILabel!
     @IBOutlet var temp: UILabel!
@@ -18,16 +18,23 @@ class WeatherViewController: UIViewController,CLLocationManagerDelegate{
     @IBOutlet var pressure: UILabel!
     @IBOutlet var windSp: UILabel!
     @IBOutlet var windDeg: UILabel!
-    @IBOutlet var visibility: UILabel!
     @IBOutlet var sunrise: UILabel!
     @IBOutlet var sunset: UILabel!
-    @IBOutlet var icon: UIImageView!
+    // Current Weather Icon Container
     @IBOutlet var iconView: UIView!
     
+    // To get location of user
     var locationManager = CLLocationManager()
+    
+    // For seraching cities
     var searchController: UISearchController!
+    
+    // Weather Chart
     let chart = ChartUtility.init()
+    
+    // Service for getting weather chart data
     let service = WebServiceUtility.init()
+    // Service for getting current weather data
     let currWeatherService = CurrWeatherServiceUtility.init()
     var fadeLayer : CALayer?
     
@@ -144,39 +151,45 @@ extension WeatherViewController: GMSAutocompleteResultsViewControllerDelegate {
         self.refreshCurrWeatherFields(long:userLocation.coordinate.longitude,lat:userLocation.coordinate.latitude);
     }
     
+    // Author: Vikki Wong
+    //
     func refreshCurrWeatherFields(long : Double,lat: Double) {
         self.currWeatherService.currentWeatherRequest(long: long,lat: lat) {
-    packagedWeather in
+            packagedWeather in
 
-    DispatchQueue.main.sync {
-    self.city.text = packagedWeather["name"] as! String
-    self.main.text = packagedWeather["main"] as! String
-    self.temp.text = packagedWeather["temp"] as! String
-    self.minTemp.text = packagedWeather["min"] as! String
-    self.maxTemp.text = packagedWeather["max"] as! String
-    self.clouds.text = packagedWeather["clouds"] as! String
-    self.humidity.text = packagedWeather["humidity"] as! String
-    self.pressure.text = packagedWeather["pressure"] as! String
-    self.windSp.text = packagedWeather["windSp"] as! String
-    self.windDeg.text = packagedWeather["windDeg"] as! String
-    self.sunrise.text = packagedWeather["sunrise"] as! String
-    self.sunset.text = packagedWeather["sunset"] as! String
+            DispatchQueue.main.sync {
+                self.city.text = packagedWeather["name"] as! String
+                self.main.text = packagedWeather["main"] as! String
+                self.temp.text = packagedWeather["temp"] as! String
+                self.minTemp.text = packagedWeather["min"] as! String
+                self.maxTemp.text = packagedWeather["max"] as! String
+                self.clouds.text = packagedWeather["clouds"] as! String
+                self.humidity.text = packagedWeather["humidity"] as! String
+                self.pressure.text = packagedWeather["pressure"] as! String
+                self.windSp.text = packagedWeather["windSp"] as! String
+                self.windDeg.text = packagedWeather["windDeg"] as! String
+                self.sunrise.text = packagedWeather["sunrise"] as! String
+                self.sunset.text = packagedWeather["sunset"] as! String
+                // Set weather icon
+                let fileName = packagedWeather["icon"] as! String
+                let url = URL(string: "https://openweathermap.org/img/w/" + fileName + ".png")
+                let data = try? Data(contentsOf: url!)
+                // Create Fade Anitmation
+                self.setIconAnimation(imgData: data!)
+            
+            }
     
-    let fileName = packagedWeather["icon"] as! String
-    
-    let url = URL(string: "https://openweathermap.org/img/w/" + fileName + ".png")
-    let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-//    self.icon.image = UIImage(data: data!)
-        self.setIconAnimation(imgData: data!)
-    
-    print(packagedWeather)
+        }
     }
     
-    }
-    }
     
+    // Author: Vikki Wong
+    // To add animation to CALayer, then add CALayer to Icon UIView container.
     func setIconAnimation(imgData: Data) {
         let fadeImage = UIImage(data: imgData)
+        if ((fadeLayer) != nil) {
+            fadeLayer?.removeFromSuperlayer()
+        }
         fadeLayer = CALayer.init()
         fadeLayer?.contents = fadeImage?.cgImage
         fadeLayer?.bounds = CGRect(x: 0, y: 0, width: 50, height: 50)
