@@ -2,6 +2,8 @@
 //  WebViewController.swift
 //  WeatherApp
 //
+//    Displays WebView to the OpenWeather API Website
+//
 //  Created by Vikki Wong on 2019-04-14.
 //  Copyright © 2019 Jianlin Luo. All rights reserved.
 //
@@ -11,18 +13,18 @@ import WebKit
 
 class WebViewController: UIViewController, WKNavigationDelegate {
     
+    // Initiating WebView and ActivityIndicator for the View Controller
     @IBOutlet var webView : WKWebView!
     @IBOutlet var activity : UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // Navigate to OpenWeatherAPI Website
         let urlAddress = URL(string : "https://openweathermap.org/")
         let url = URLRequest(url:urlAddress!)
         webView.load(url)
-        
         webView.navigationDelegate = self
-        // Do any additional setup after loading the view.
     }
     
     

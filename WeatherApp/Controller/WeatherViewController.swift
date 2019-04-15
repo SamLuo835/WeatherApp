@@ -63,6 +63,7 @@ class WeatherViewController: UIViewController,CLLocationManagerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Show activity indicator until WebView is loaded
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
         self.locationManager.requestWhenInUseAuthorization()
@@ -152,7 +153,8 @@ extension WeatherViewController: GMSAutocompleteResultsViewControllerDelegate {
     }
     
     // Author: Vikki Wong
-    //
+    // Refreshes all Current Weather labels. Grabs information from the currWeatherService,
+    // then setting label texts
     func refreshCurrWeatherFields(long : Double,lat: Double) {
         self.currWeatherService.currentWeatherRequest(long: long,lat: lat) {
             packagedWeather in

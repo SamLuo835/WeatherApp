@@ -10,14 +10,19 @@ import UIKit
 
 class SettingViewController: UIViewController {
 
+    
+    // Labels for toggling weather measurements
     @IBOutlet var celLbl: UILabel!
     @IBOutlet var feLbl: UILabel!
     @IBOutlet var kmLbl : UILabel!
     @IBOutlet var miLbl : UILabel!
+    
+    // Volume Slider to change background music volume
     @IBOutlet var volSlider : UISlider!
     var mainDelegate : AppDelegate!
     
-    
+    // Triggered when silder's value has changed, then
+    // change the background music volume
     @IBAction func volumeDidChange(sender: UISlider)
     {
         mainDelegate.music.changeVolume(vol: volSlider.value)
