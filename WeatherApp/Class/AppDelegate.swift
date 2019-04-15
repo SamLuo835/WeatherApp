@@ -101,7 +101,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
-    
+     //Author: Jianlin Luo, remove the table
     func deleteAll() {
         faviouriteCities.removeAll()
         

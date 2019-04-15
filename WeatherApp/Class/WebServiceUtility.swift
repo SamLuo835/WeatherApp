@@ -11,6 +11,7 @@ import UIKit
 class WebServiceUtility: NSObject {
     let mainDelegate = UIApplication.shared.delegate as! AppDelegate
 
+    //call back function taking the [string],[double] when the response is return and processed
     func chartRequest(long:Double,lat:Double,handler: @escaping ([String],[Double])->()){
         var units = "metric"
         
@@ -41,6 +42,7 @@ class WebServiceUtility: NSObject {
                         var innerCount : NSInteger = 0
                         
                         for item in list{
+                            //using the counter to reduce the number of date labels in the chart in a set peroid
                             if outerCount % 2 == 0{
                                 if innerCount % 2 == 0{
                                     let NSItem = item as! NSDictionary

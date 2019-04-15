@@ -60,6 +60,7 @@ class WeatherViewController: UIViewController,CLLocationManagerDelegate{
         }
     }
   
+    //Author: Jianlin Luo, add the search sub view and update current location when viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -104,8 +105,9 @@ class WeatherViewController: UIViewController,CLLocationManagerDelegate{
     }
 }
 
-// Handle the user's selection.
+// Author: Jianlin Luo, Handle the user's selection.
 extension WeatherViewController: GMSAutocompleteResultsViewControllerDelegate {
+    // Author: Jianlin Luo, draw the chart and refresh the weather forecast labels using the data from openWeatherAPI
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
                            didAutocompleteWith place: GMSPlace) {
         searchController?.isActive = false
@@ -114,6 +116,7 @@ extension WeatherViewController: GMSAutocompleteResultsViewControllerDelegate {
         self.lineChart.isHidden = true
         self.activityIndicator.isHidden = false
         self.activityIndicator.startAnimating()
+        //providing the call back function
         self.service.chartRequest(long:place.coordinate.longitude,lat:place.coordinate.latitude){
            time,temp in
            let timeLbl : [String] = time
@@ -128,7 +131,7 @@ extension WeatherViewController: GMSAutocompleteResultsViewControllerDelegate {
         self.refreshCurrWeatherFields(long:place.coordinate.longitude,lat:place.coordinate.latitude);
 
     }
-    
+    // Author: Jianlin Luo, use the current location to call openWeatherApi on first time
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         let userLocation = locations[0]
