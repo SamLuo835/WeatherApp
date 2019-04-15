@@ -51,18 +51,18 @@ class CurrWeatherServiceUtility: NSObject {
                         let weatherLst = currentWeather["weather"] as? NSArray
                         let weatherObj = weatherLst![0] as? NSDictionary
                         let mainWeather = weatherObj!["main"]
-                        let icon = weatherObj!["icon"]
+                        let icon = weatherObj!["icon"] 
                         let clouds = currentWeather["clouds"] as? NSDictionary
-                        let cloudAll = clouds!["all"]
+                        let cloudAll = clouds!["all"] ?? "Unavailable"
                         
                         let wind = currentWeather["wind"] as? NSDictionary
-                        let windSp = wind!["speed"]
-                        let windDeg = wind!["deg"]
+                        let windSp = wind!["speed"] ?? "Unavailable"
+                        let windDeg = wind!["deg"] ?? "Unavailable"
                         
                         let sys = currentWeather["sys"] as? NSDictionary
-                        let country = sys!["country"]
+                        let country = sys!["country"] ?? "Unavailable"
                         
-                        let sunrise = sys!["sunrise"] as! Double
+                        let sunrise = sys!["sunrise"] as! Double 
                         let sunset = sys!["sunset"] as! Double
                         let sunriseDate = NSDate(timeIntervalSince1970: sunrise)
                         let sunsetDate = NSDate(timeIntervalSince1970: sunset)
@@ -73,17 +73,17 @@ class CurrWeatherServiceUtility: NSObject {
                         let formattedSunset = formatter.string(from: sunsetDate as Date)
                         
                         let packagedWeather: NSDictionary = [
-                            "name" : "\(name!), \(country!)",
+                            "name" : "\(name!), \(country)",
                             "main" : "\(mainWeather!)",
                             "icon" : "\(icon!)",
                             "temp" : "\(temp!)",
                             "min" : "\(min!)",
                             "max" : "\(max!)",
-                            "clouds" : "\(cloudAll!)",
+                            "clouds" : "\(cloudAll)",
                             "humidity" : "\(humidity!)",
                             "pressure" : "\(pressure!)",
-                            "windSp" : "\(windSp!)",
-                            "windDeg" : "\(windDeg!)",
+                            "windSp" : "\(windSp)",
+                            "windDeg" : "\(windDeg)",
                             "sunrise" :"\(formattedSunrise)",
                             "sunset" : "\(formattedSunset)"
                         ]
