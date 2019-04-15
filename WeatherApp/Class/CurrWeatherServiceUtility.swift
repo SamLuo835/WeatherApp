@@ -41,8 +41,7 @@ class CurrWeatherServiceUtility: NSObject {
                         let weather = currentWeather["weather"] as? NSArray
                         let name = currentWeather["name"] as? String
                         let visibility = currentWeather["visibility"]
-//                        let convertedVis = self.converter.updateUnit(visibility: (visibility as! Double)) as? String
-//                        print(convertedVis)
+
                         let temp = main!["temp"]
                         let min = main!["temp_min"]
                         let max = main!["temp_max"]
@@ -87,8 +86,6 @@ class CurrWeatherServiceUtility: NSObject {
                             "windDeg" : "\(windDeg!)",
                             "sunrise" :"\(formattedSunrise)",
                             "sunset" : "\(formattedSunset)"
-//                            ,
-//                            "visibility" : "\(convertedVis)"
                         ]
                         
                         handler(packagedWeather as NSDictionary)

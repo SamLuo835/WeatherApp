@@ -9,7 +9,6 @@ class WeatherViewController: UIViewController,CLLocationManagerDelegate{
     
     // Curr Weather
     @IBOutlet var city: UILabel!
-    @IBOutlet var icon: UIImageView!
     @IBOutlet var main: UILabel!
     @IBOutlet var temp: UILabel!
     @IBOutlet var minTemp: UILabel!
@@ -22,12 +21,15 @@ class WeatherViewController: UIViewController,CLLocationManagerDelegate{
     @IBOutlet var visibility: UILabel!
     @IBOutlet var sunrise: UILabel!
     @IBOutlet var sunset: UILabel!
+    @IBOutlet var icon: UIImageView!
+    @IBOutlet var iconView: UIView!
     
     var locationManager = CLLocationManager()
     var searchController: UISearchController!
     let chart = ChartUtility.init()
     let service = WebServiceUtility.init()
     let currWeatherService = CurrWeatherServiceUtility.init()
+    var fadeLayer : CALayer?
     
     var place: GMSPlace!
     
@@ -145,9 +147,7 @@ extension WeatherViewController: GMSAutocompleteResultsViewControllerDelegate {
     func refreshCurrWeatherFields(long : Double,lat: Double) {
         self.currWeatherService.currentWeatherRequest(long: long,lat: lat) {
     packagedWeather in
-    
-    //let cloud = currentWeather["clouds"] as! NSDictionary
-    
+
     DispatchQueue.main.sync {
     self.city.text = packagedWeather["name"] as! String
     self.main.text = packagedWeather["main"] as! String
@@ -161,19 +161,40 @@ extension WeatherViewController: GMSAutocompleteResultsViewControllerDelegate {
     self.windDeg.text = packagedWeather["windDeg"] as! String
     self.sunrise.text = packagedWeather["sunrise"] as! String
     self.sunset.text = packagedWeather["sunset"] as! String
-//    self.visibility.text = packagedWeather["visibility"] as! String
-    
     
     let fileName = packagedWeather["icon"] as! String
     
     let url = URL(string: "https://openweathermap.org/img/w/" + fileName + ".png")
     let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-    self.icon.image = UIImage(data: data!)
+//    self.icon.image = UIImage(data: data!)
+        self.setIconAnimation(imgData: data!)
     
     print(packagedWeather)
     }
     
     }
+    }
+    
+    func setIconAnimation(imgData: Data) {
+        let fadeImage = UIImage(data: imgData)
+        fadeLayer = CALayer.init()
+        fadeLayer?.contents = fadeImage?.cgImage
+        fadeLayer?.bounds = CGRect(x: 0, y: 0, width: 50, height: 50)
+        fadeLayer?.position = CGPoint(x: 25, y: 20)
+        self.iconView.layer.addSublayer(fadeLayer!)
+        
+        let fadeAnimation = CABasicAnimation(keyPath: "opacity")
+        fadeAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        fadeAnimation.fromValue = NSNumber.init(value: 1.0)
+        fadeAnimation.toValue = NSNumber.init(value: 0.0)
+        fadeAnimation.isRemovedOnCompletion = false
+        fadeAnimation.duration = 3.0
+        fadeAnimation.beginTime = 1.0
+        fadeAnimation.isAdditive = false
+        
+        fadeAnimation.fillMode = CAMediaTimingFillMode.both
+        fadeAnimation.repeatCount = Float.infinity
+        fadeLayer?.add(fadeAnimation, forKey: nil)
     }
     
     func resultsController(_ resultsController: GMSAutocompleteResultsViewController,
