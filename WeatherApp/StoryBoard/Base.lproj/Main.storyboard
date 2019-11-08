@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
-    <device id="ipad12_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z05-xs-JpP">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="950"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="917"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dvC-SS-bJd">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
@@ -54,7 +52,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity (%)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fD6-GP-ZqU">
-                                                <rect key="frame" x="30" y="574" width="99" height="21"/>
+                                                <rect key="frame" x="30" y="574" width="100" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -66,7 +64,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Sunrise Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4mW-bP-Hb0">
-                                                <rect key="frame" x="30" y="799" width="99" height="21"/>
+                                                <rect key="frame" x="30" y="799" width="100" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -84,7 +82,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="253" verticalHuggingPriority="251" horizontalCompressionResistancePriority="753" text="Temp" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="42.5" translatesAutoresizingMaskIntoConstraints="NO" id="6re-QG-CGx">
-                                                <rect key="frame" x="299" y="407" width="42.5" height="21"/>
+                                                <rect key="frame" x="299" y="407" width="42.666666666666686" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -359,7 +357,7 @@
             <objects>
                 <viewController id="OR8-Vy-1Wb" customClass="SettingViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gVj-zL-3yl">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="3Qf-qK-q1e">
@@ -423,7 +421,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p7K-6Q-95s">
-                                <rect key="frame" x="0.0" y="20" width="1024" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Settings" id="JUf-Tw-EyA"/>
@@ -538,7 +536,7 @@
             <objects>
                 <viewController id="353-Kn-3f4" customClass="WebViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BPc-cm-nhI">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="59q-cs-bzT">
@@ -556,7 +554,7 @@
                                 <color key="color" cocoaTouchSystemColor="darkTextColor"/>
                             </activityIndicatorView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6xb-hM-5c2">
-                                <rect key="frame" x="0.0" y="20" width="1024" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="OpenWeather API" id="VX0-rD-dsa">
@@ -587,7 +585,7 @@
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000596046448" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="9Ky-9T-XsV">
@@ -611,7 +609,7 @@
                                 </connections>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hcu-pk-uOK">
-                                <rect key="frame" x="0.0" y="34" width="1024" height="44"/>
+                                <rect key="frame" x="0.0" y="34" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Favourites" id="8pE-9q-BTe"/>
@@ -624,61 +622,72 @@
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="tableView" destination="sN3-b2-e08" id="9qA-8K-WRI"/>
-                        <segue destination="hEp-TM-f6y" kind="presentation" identifier="cityPicturesViewController" id="jiV-9c-ase"/>
+                        <segue destination="U3M-D8-HRE" kind="presentation" identifier="cityPicturesViewController" id="jiV-9c-ase"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1408.8" y="781.25937031484261"/>
         </scene>
-        <!--City Pictures View Controller-->
+        <!--City Pictures-->
         <scene sceneID="bfY-Su-xWt">
             <objects>
                 <viewController id="hEp-TM-f6y" customClass="CityPicturesViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T77-fr-wTC">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000596046448" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="baQ-mp-TcX">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000596046448" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="baQ-mp-TcX">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                             </imageView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Cv-SQ-Pm5">
-                                <rect key="frame" x="0.0" y="20" width="1024" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="City Pictures" id="Ls3-8H-5KO">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="p5l-Zy-6zN">
-                                            <connections>
-                                                <segue destination="EcX-6M-m8b" kind="unwind" unwindAction="unwindToFavioriteViewControllerWithSender:" id="dQ8-Bd-Z6O"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Js1-st-Toe">
-                                <rect key="frame" x="12" y="132" width="173" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Js1-st-Toe">
+                                <rect key="frame" x="26.666666666666671" y="132" width="173" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="127.99999999999989" id="1mP-lo-weI"/>
+                                    <constraint firstAttribute="width" constant="172.99999999999955" id="gjh-qq-2kq"/>
+                                </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IAn-uO-MbA">
-                                <rect key="frame" x="187" y="132" width="182" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IAn-uO-MbA">
+                                <rect key="frame" x="201.66666666666663" y="132" width="182" height="128"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uWS-Hr-n1O">
-                                <rect key="frame" x="67" y="277" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uWS-Hr-n1O">
+                                <rect key="frame" x="86.586956521766297" y="277" width="239.99999999999977" height="128.00000000000023"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show city pic " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhj-fZ-Jd1">
-                                <rect key="frame" x="89" y="78" width="196" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show city pic " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhj-fZ-Jd1">
+                                <rect key="frame" x="146" y="78" width="122.33333333333331" height="26"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="uWS-Hr-n1O" firstAttribute="top" secondItem="Js1-st-Toe" secondAttribute="bottom" constant="17" id="1uz-g3-vTL"/>
+                            <constraint firstItem="uWS-Hr-n1O" firstAttribute="centerX" secondItem="qhj-fZ-Jd1" secondAttribute="centerX" id="6fV-dc-1V6"/>
+                            <constraint firstItem="Js1-st-Toe" firstAttribute="top" secondItem="IAn-uO-MbA" secondAttribute="top" id="770-8W-jb0"/>
+                            <constraint firstItem="WOh-U2-96j" firstAttribute="bottom" secondItem="baQ-mp-TcX" secondAttribute="bottom" id="7B6-jA-AcO"/>
+                            <constraint firstItem="baQ-mp-TcX" firstAttribute="top" secondItem="T77-fr-wTC" secondAttribute="topMargin" constant="-56" id="9Fk-84-yjk"/>
+                            <constraint firstItem="Js1-st-Toe" firstAttribute="top" secondItem="T77-fr-wTC" secondAttribute="top" constant="132" id="B60-w1-SE1"/>
+                            <constraint firstItem="Js1-st-Toe" firstAttribute="bottom" secondItem="IAn-uO-MbA" secondAttribute="bottom" id="Esi-HO-PP9"/>
+                            <constraint firstItem="qhj-fZ-Jd1" firstAttribute="centerX" secondItem="T77-fr-wTC" secondAttribute="centerX" id="Fcr-i9-Xzm"/>
+                            <constraint firstItem="uWS-Hr-n1O" firstAttribute="leading" secondItem="WOh-U2-96j" secondAttribute="leading" constant="86.586956521766297" id="IDv-59-Jic"/>
+                            <constraint firstItem="Js1-st-Toe" firstAttribute="leading" secondItem="WOh-U2-96j" secondAttribute="leading" constant="26.76086956524432" id="J6d-aj-PhK"/>
+                            <constraint firstItem="baQ-mp-TcX" firstAttribute="leading" secondItem="WOh-U2-96j" secondAttribute="leading" id="KHh-gv-bav"/>
+                            <constraint firstItem="WOh-U2-96j" firstAttribute="bottom" secondItem="uWS-Hr-n1O" secondAttribute="bottom" constant="402.99999999999977" id="g5n-jq-raJ"/>
+                            <constraint firstItem="Js1-st-Toe" firstAttribute="top" secondItem="qhj-fZ-Jd1" secondAttribute="bottom" constant="28" id="rKG-dv-ox9"/>
+                            <constraint firstItem="WOh-U2-96j" firstAttribute="trailing" secondItem="IAn-uO-MbA" secondAttribute="trailing" constant="30.23913043475568" id="xKZ-is-M2a"/>
+                            <constraint firstItem="WOh-U2-96j" firstAttribute="trailing" secondItem="baQ-mp-TcX" secondAttribute="trailing" id="xgR-CO-rEc"/>
+                            <constraint firstItem="IAn-uO-MbA" firstAttribute="leading" secondItem="Js1-st-Toe" secondAttribute="trailing" constant="2.0000000000004547" id="ys4-dz-OEj"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="WOh-U2-96j"/>
                     </view>
+                    <navigationItem key="navigationItem" title="City Pictures" id="fBl-uX-cpi">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="p5l-Zy-6zN">
+                            <connections>
+                                <segue destination="EcX-6M-m8b" kind="unwind" unwindAction="unwindToFavioriteViewControllerWithSender:" id="dQ8-Bd-Z6O"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="firstImg" destination="Js1-st-Toe" id="UjM-j7-YSg"/>
                         <outlet property="lblCityName" destination="qhj-fZ-Jd1" id="nRy-bS-HK6"/>
@@ -689,7 +698,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6AH-e8-e6O" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="EcX-6M-m8b" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2181.5999999999999" y="780.35982008995506"/>
+            <point key="canvasLocation" x="2905.6640625" y="780.08784773060029"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -710,9 +719,27 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hOB-jK-DGp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="U3M-D8-HRE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OSP-k8-pbm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hEp-TM-f6y" kind="relationship" relationship="rootViewController" id="19x-XE-cbb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vPg-he-sH1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2181.4453125" y="780.08784773060029"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="background" width="753.205810546875" height="1409.2237548828125"/>
+        <image name="background" width="744" height="1392"/>
         <image name="button1.png" width="433" height="137"/>
         <image name="favorite_grey_18x18" width="18" height="18"/>
         <image name="settings" width="30" height="30"/>
