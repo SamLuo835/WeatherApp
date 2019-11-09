@@ -32,6 +32,7 @@ class WeatherViewController: UIViewController,CLLocationManagerDelegate{
     // Weather Chart
     let chart = ChartUtility.init()
     
+    var subView :UIView?
     // Service for getting weather chart data
     let service = WebServiceUtility.init()
     // Service for getting current weather data
@@ -50,13 +51,13 @@ class WeatherViewController: UIViewController,CLLocationManagerDelegate{
             
             let mainDelegete = UIApplication.shared.delegate as! AppDelegate
             
-            let isSuccess = mainDelegete.addFavouriteToDB(city: city)
+            //let isSuccess = mainDelegete.addFavouriteToDB(city: city)
             
-            if !isSuccess {
-                print("Failed to add row to db")
-            }
-            print("SUCCESS: \(isSuccess)")
-            mainDelegete.readDataFromDB()
+            // if !isSuccess {
+            //    print("Failed to add row to db")
+            //}
+            //print("SUCCESS: \(isSuccess)")
+            //mainDelegete.readDataFromDB()
         }
     }
   
@@ -93,10 +94,13 @@ class WeatherViewController: UIViewController,CLLocationManagerDelegate{
         searchController = UISearchController(searchResultsController: resultsViewController)
         searchController?.searchResultsUpdater = resultsViewController
         
-        let subView = UIView(frame: CGRect(x: 0, y: 0, width: 350.0, height: 45.0))
+        subView = UIView(frame: CGRect(x: 0, y: 30, width: 350.0, height: 45.0))
         
-        subView.addSubview((searchController?.searchBar)!)
-        view.addSubview(subView)
+        subView?.addSubview((searchController?.searchBar)!)
+       
+        if let sview:UIView = subView{
+            view.addSubview(sview)
+        }
         searchController?.searchBar.sizeToFit()
         searchController?.hidesNavigationBarDuringPresentation = false
         
@@ -104,7 +108,28 @@ class WeatherViewController: UIViewController,CLLocationManagerDelegate{
         // this view controller, not one further up the chain.
         definesPresentationContext = true
     }
+    
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        subView?.removeFromSuperview()
+        if UIDevice.current.orientation.isLandscape {
+               subView = UIView(frame: CGRect(x: 0, y: 0, width: 1000, height: 45.0))
+           } else {
+               subView = UIView(frame: CGRect(x: 0, y: 30, width: 350, height: 45.0))
+           }
+         
+         subView?.addSubview((searchController?.searchBar)!)
+        
+         if let sview:UIView = subView{
+             view.addSubview(sview)
+         }
+         searchController?.searchBar.sizeToFit()
+         searchController?.hidesNavigationBarDuringPresentation = false
+        
+    }
+
 }
+
 
 // Author: Jianlin Luo, Handle the user's selection.
 extension WeatherViewController: GMSAutocompleteResultsViewControllerDelegate {
