@@ -2,7 +2,7 @@
 //  ChartUtility.swift
 //  WeatherApp
 //
-//  Created by Jianlin Luo on 2019-03-04.
+//  Created by Jianlin Luo on 2019-11-04.
 //  Copyright © 2019 Jianlin Luo. All rights reserved.
 //
 

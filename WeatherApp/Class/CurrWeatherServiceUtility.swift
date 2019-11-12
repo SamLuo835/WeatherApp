@@ -5,7 +5,7 @@
 //   Create requests to obtain Current Weather
 //   information from OpenWeather API
 //
-//  Created by Vikki Wong on 2019-04-14.
+//  Created by Vikki Wong on 2019-11-14.
 //  Copyright © 2019 Jianlin Luo. All rights reserved.
 //
 

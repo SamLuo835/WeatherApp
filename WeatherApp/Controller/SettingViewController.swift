@@ -2,7 +2,7 @@
 //  SettingViewController.swift
 //  WeatherApp
 //
-//  Created by Jianlin Luo on 2019-03-05.
+//  Created by Jianlin Luo on 2019-11-05.
 //  Copyright © 2019 Jianlin Luo. All rights reserved.
 //
 
@@ -47,7 +47,7 @@ class SettingViewController: UIViewController {
     
     
     @IBAction func removeTable(sender:UIButton){
-       delegete.deleteAll()
+       //delegete.deleteAll()
         
     }
     
