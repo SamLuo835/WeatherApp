@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22946FBF2390003600BA1743 /* WeatherApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22946FBD2390003600BA1743 /* WeatherApp.xcdatamodeld */; };
 		22E8AAA0222CA0F100BE3D63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8AA9F222CA0F100BE3D63 /* AppDelegate.swift */; };
 		22E8AAA2222CA0F100BE3D63 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8AAA1222CA0F100BE3D63 /* WeatherViewController.swift */; };
 		22E8AAA4222CA0F100BE3D63 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8AAA3222CA0F100BE3D63 /* TableViewController.swift */; };
@@ -28,6 +29,7 @@
 
 /* Begin PBXFileReference section */
 		1CDFC284B5F61218DDEDA0F1 /* libPods-WeatherApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeatherApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		22946FBE2390003600BA1743 /* WeatherApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WeatherApp.xcdatamodel; sourceTree = "<group>"; };
 		22E8AA9C222CA0F100BE3D63 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E8AA9F222CA0F100BE3D63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22E8AAA1222CA0F100BE3D63 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				22E8AAB3222CA83900BE3D63 /* Controller */,
 				22E8AAA8222CA0F300BE3D63 /* Assets.xcassets */,
 				22E8AAAD222CA0F300BE3D63 /* Info.plist */,
+				22946FBD2390003600BA1743 /* WeatherApp.xcdatamodeld */,
 			);
 			path = WeatherApp;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				22946FBF2390003600BA1743 /* WeatherApp.xcdatamodeld in Sources */,
 				7836BAD22263D09B002553CC /* MusicUtility.swift in Sources */,
 				22E8AAA4222CA0F100BE3D63 /* TableViewController.swift in Sources */,
 				22E8AAB8222CB50500BE3D63 /* WebServiceUtility.swift in Sources */,
@@ -491,6 +495,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		22946FBD2390003600BA1743 /* WeatherApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				22946FBE2390003600BA1743 /* WeatherApp.xcdatamodel */,
+			);
+			currentVersion = 22946FBE2390003600BA1743 /* WeatherApp.xcdatamodel */;
+			path = WeatherApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 22E8AA94222CA0F100BE3D63 /* Project object */;
 }
