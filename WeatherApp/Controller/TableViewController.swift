@@ -12,10 +12,8 @@ import CoreData
 import os.log       // for system logging
 
 // TODO:  Rename to faviourite view controller
-class TableViewController: UIViewController {
-       
-    let mainDelegete = UIApplication.shared.delegate as! AppDelegate
-    
+class TableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+           
     //properties updated
     var managedObjectContext: NSManagedObjectContext!
     var moCities: [NSManagedObject] = []  // whole managed objects
@@ -23,7 +21,24 @@ class TableViewController: UIViewController {
     @IBOutlet var tableView:UITableView!
     @IBAction func unwindToFavioriteViewController(sender: UIStoryboardSegue!) {}
     
+    override func viewDidLoad(){
+        super.viewDidLoad()
+
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+
+        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CityCell")
+    }
     
+    required init?(coder  aCoder: NSCoder){
+        // initialize managed object context in this class
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        managedObjectContext = appDelegate.persistentContainer.viewContext
+
+        // call superclass init() right after init all properties of this class
+        super.init(coder:aCoder)
+        
+    }
     ///////////////////////////////////////////////////////////////////////////
     //Table view data source
     func numberOfSections(in tableView: UITableView) -> Int
@@ -46,28 +61,21 @@ class TableViewController: UIViewController {
         let index = indexPath.row
         let moCities = self.moCities[index]
         
-        //other properties if you want to use them
-        let cityId = moCities.value(forKey: "id") as? Int32
-        let cityLat = moCities.value(forKey: "lat") as? String ?? ""
-        let cityLong = moCities.value(forKey: "long") as? String ?? ""
-        let cityPlaceId = moCities.value(forKey: "placeId") as? String ?? ""
-    
         // set full name to the cell
         let cityName = moCities.value(forKey: "name") as? String ?? ""
         cell.textLabel?.text = "\(cityName)"
+        cell.layer.backgroundColor = UIColor.clear.cgColor
+
 
         return cell
     }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        //faviouriteCities.removeAll();
-        DispatchQueue.main.async { self.tableView.reloadData() }
+        self.fetchData()
+        print("refresh")
+         self.tableView.reloadData()
     }
     
     ///////////////////////////////////////////////////////////////////////////
@@ -75,10 +83,10 @@ class TableViewController: UIViewController {
     func fetchData()
     {
         // create fetch request objects to query managed objects
-        let cityRequest = NSFetchRequest<NSManagedObject>(entityName: "City")
+        let cityRequest = NSFetchRequest<NSManagedObject>(entityName: "CityModel")
         
 
-        // to sort students by first name with natural ascending
+        // to sort city by name with natural ascending
         let cityDescriptor = NSSortDescriptor(key: "name",
                                                  ascending: true,
                                                  selector: #selector(NSString.localizedStandardCompare))
@@ -89,6 +97,9 @@ class TableViewController: UIViewController {
         do
         {
             self.moCities = try managedObjectContext.fetch(cityRequest)
+            print(String(self.moCities.count) + " length of objects")
+            print(self.moCities)
+
         }
         catch let error as NSError
         {

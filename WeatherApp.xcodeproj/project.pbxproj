@@ -18,7 +18,6 @@
 		22E8AABA222D8F5900BE3D63 /* ChartUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8AAB9222D8F5900BE3D63 /* ChartUtility.swift */; };
 		22E8AADE222F434800BE3D63 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8AADD222F434800BE3D63 /* SettingViewController.swift */; };
 		5C37FD88224C508100382D94 /* CityPicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C37FD87224C508100382D94 /* CityPicturesViewController.swift */; };
-		5C37FD8F224C59AB00382D94 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C37FD8E224C59AB00382D94 /* City.swift */; };
 		7836BACE2263B871002553CC /* CurrWeatherServiceUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836BACD2263B871002553CC /* CurrWeatherServiceUtility.swift */; };
 		7836BAD02263D03A002553CC /* background_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7836BACF2263D03A002553CC /* background_music.mp3 */; };
 		7836BAD22263D09B002553CC /* MusicUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836BAD12263D09B002553CC /* MusicUtility.swift */; };
@@ -42,7 +41,6 @@
 		22E8AAB9222D8F5900BE3D63 /* ChartUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartUtility.swift; sourceTree = "<group>"; };
 		22E8AADD222F434800BE3D63 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		5C37FD87224C508100382D94 /* CityPicturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPicturesViewController.swift; sourceTree = "<group>"; };
-		5C37FD8E224C59AB00382D94 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		5C37FD90224C655000382D94 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		5C37FD91224C655000382D94 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		7836BACD2263B871002553CC /* CurrWeatherServiceUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrWeatherServiceUtility.swift; sourceTree = "<group>"; };
@@ -128,7 +126,6 @@
 				22E8AA9F222CA0F100BE3D63 /* AppDelegate.swift */,
 				22E8AAB7222CB50500BE3D63 /* WebServiceUtility.swift */,
 				22E8AAB9222D8F5900BE3D63 /* ChartUtility.swift */,
-				5C37FD8E224C59AB00382D94 /* City.swift */,
 				7836BACD2263B871002553CC /* CurrWeatherServiceUtility.swift */,
 				7836BAD12263D09B002553CC /* MusicUtility.swift */,
 			);
@@ -286,7 +283,6 @@
 				7836BAD22263D09B002553CC /* MusicUtility.swift in Sources */,
 				22E8AAA4222CA0F100BE3D63 /* TableViewController.swift in Sources */,
 				22E8AAB8222CB50500BE3D63 /* WebServiceUtility.swift in Sources */,
-				5C37FD8F224C59AB00382D94 /* City.swift in Sources */,
 				22E8AAA0222CA0F100BE3D63 /* AppDelegate.swift in Sources */,
 				22E8AAA2222CA0F100BE3D63 /* WeatherViewController.swift in Sources */,
 				5C37FD88224C508100382D94 /* CityPicturesViewController.swift in Sources */,

@@ -18,8 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var celBoolean : Bool = true
     var disBoolean : Bool = true
     var apiKey : String = ""
-    var city : City!
-    var faviouriteCities : [City] = []
     var music = MusicUtility.init()
     
     

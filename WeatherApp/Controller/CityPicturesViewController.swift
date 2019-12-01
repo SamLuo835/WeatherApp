@@ -20,10 +20,10 @@ class CityPicturesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        placesClient = GMSPlacesClient.shared()
+      /*  placesClient = GMSPlacesClient.shared()
         
         let mainDelgete = UIApplication.shared.delegate as! AppDelegate
-        let city : City = mainDelgete.city!
+        let city  =
         
         // Specify the place data types to return (in this case, just photos).
         let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.photos.rawValue))!
@@ -59,6 +59,6 @@ class CityPicturesViewController: UIViewController {
                 }
             }
         })
-        
+     */
     }
 }

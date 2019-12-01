@@ -1,6 +1,8 @@
 import UIKit
 import GooglePlaces
 import Charts
+import CoreData
+
 class WeatherViewController: UIViewController,CLLocationManagerDelegate{
     @IBOutlet weak var lineChart : LineChartView!
     @IBOutlet var lat : UILabel!
@@ -41,25 +43,69 @@ class WeatherViewController: UIViewController,CLLocationManagerDelegate{
     
     var place: GMSPlace!
     
+    var managedObjectContext: NSManagedObjectContext!
+
+    var moCitys: [NSManagedObject] = []  // whole managed objects
+    
+    
+    required init?(coder  aCoder: NSCoder){
+        // initialize managed object context in this class
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        managedObjectContext = appDelegate.persistentContainer.viewContext
+
+        // call superclass init() right after init all properties of this class
+        super.init(coder:aCoder)
+        
+        
+    }
+
     // Faviourite a location
     @IBAction func faviourite() {
-        print("Add to faviorite")
         if place != nil {
-            let city : City = City.init()
-            // this data should be populated once the api call finishes
-            city.initWithData(id: 0, placeId: place.placeID!, name: place.name!, lat: place.coordinate.latitude, lng: place.coordinate.longitude)
-            
-            let mainDelegete = UIApplication.shared.delegate as! AppDelegate
-            
-            //let isSuccess = mainDelegete.addFavouriteToDB(city: city)
-            
-            // if !isSuccess {
-            //    print("Failed to add row to db")
-            //}
-            //print("SUCCESS: \(isSuccess)")
-            //mainDelegete.readDataFromDB()
+            addCity(placeId: place.placeID!, name: place.name!, lat: String(place.coordinate.latitude), lng: String(place.coordinate.longitude))
+            print("success")
         }
     }
+    
+    ///////////////////////////////////////////////////////////////////////////
+      // add a student into coredate
+    func addCity(placeId:String, name:String, lat:String, lng:String)
+      {
+          // create entity object
+          if let entity = NSEntityDescription.entity(forEntityName: "CityModel", in: managedObjectContext)
+          {
+              // create managed object
+              let moCity = NSManagedObject(entity: entity, insertInto: managedObjectContext)
+
+              // set its value
+              moCity.setValue(placeId, forKey: "placeId")
+              moCity.setValue(name, forKey: "name")
+              moCity.setValue(lat, forKey: "lat")
+              moCity.setValue(lng, forKey: "long")
+
+
+              // add it to array
+              self.moCitys.append(moCity)
+
+              // save core data
+              self.saveData()
+          }
+      }
+    
+    ///////////////////////////////////////////////////////////////////////////
+    // commit CoreData
+    func saveData()
+    {
+        do
+        {
+            try self.managedObjectContext.save()
+        }
+        catch let error as NSError
+        {
+            print(error.localizedDescription)
+        }
+    }
+
   
     //Author: Jianlin Luo, add the search sub view and update current location when viewDidLoad
     override func viewDidLoad() {
