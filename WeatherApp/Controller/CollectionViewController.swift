@@ -23,7 +23,7 @@ class CollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let collectionViewWidth: CGFloat = collectionView?.frame.width ?? 0
-        let itemWidth = (collectionViewWidth - 2.0 ) / 3.5
+        let itemWidth = (collectionViewWidth - 2.0 ) / 4
         let layout = collectionViewFlowLayout
         layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
         collectionView.setCollectionViewLayout(layout, animated: true)
