@@ -13,12 +13,15 @@ import os.log       // for system logging
 
 // TODO:  Rename to faviourite view controller
 class TableViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
+    let cityPictureSegue = "showCollectionSegue"
            
     //properties updated
     var managedObjectContext: NSManagedObjectContext!
     var moCities: [NSManagedObject] = []  // whole managed objects
    // var faviouriteCities : [City] = []
     @IBOutlet var tableView:UITableView!
+    
     @IBAction func unwindToFavioriteViewController(sender: UIStoryboardSegue!) {}
     
     override func viewDidLoad(){
@@ -28,6 +31,12 @@ class TableViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         self.tableView.dataSource = self
 
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "CityCell")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.fetchData()
+        self.tableView.reloadData()
     }
     
     required init?(coder  aCoder: NSCoder){
@@ -66,16 +75,27 @@ class TableViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         cell.textLabel?.text = "\(cityName)"
         cell.layer.backgroundColor = UIColor.clear.cgColor
 
-
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let row = indexPath.row
+        self.performSegue(withIdentifier: "showCollectionSegue", sender: indexPath);
     }
 
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.fetchData()
-        print("refresh")
-         self.tableView.reloadData()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == cityPictureSegue {
+            if let vc = segue.destination as? CollectionViewController{
+                
+                let index = self.tableView.indexPathForSelectedRow?.row ?? 0
+//                let city = self.moCities[index]
+                print("indexPathFor")
+                vc.cities = [self.moCities[index]]
+            }
+        }
     }
     
     ///////////////////////////////////////////////////////////////////////////

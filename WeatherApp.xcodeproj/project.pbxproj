@@ -17,12 +17,13 @@
 		22E8AAB8222CB50500BE3D63 /* WebServiceUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8AAB7222CB50500BE3D63 /* WebServiceUtility.swift */; };
 		22E8AABA222D8F5900BE3D63 /* ChartUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8AAB9222D8F5900BE3D63 /* ChartUtility.swift */; };
 		22E8AADE222F434800BE3D63 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8AADD222F434800BE3D63 /* SettingViewController.swift */; };
-		5C37FD88224C508100382D94 /* CityPicturesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C37FD87224C508100382D94 /* CityPicturesViewController.swift */; };
 		7836BACE2263B871002553CC /* CurrWeatherServiceUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836BACD2263B871002553CC /* CurrWeatherServiceUtility.swift */; };
 		7836BAD02263D03A002553CC /* background_music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7836BACF2263D03A002553CC /* background_music.mp3 */; };
 		7836BAD22263D09B002553CC /* MusicUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836BAD12263D09B002553CC /* MusicUtility.swift */; };
 		7836BAD52263D425002553CC /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7836BAD42263D425002553CC /* WebViewController.swift */; };
 		7836BAD72263D959002553CC /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7836BAD62263D959002553CC /* WebKit.framework */; };
+		78B393A2239CCC5400D37137 /* ItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B393A1239CCC5400D37137 /* ItemCollectionViewCell.swift */; };
+		78D4769E239DA7EA00307E25 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78D4769D239DA7EA00307E25 /* CollectionViewController.swift */; };
 		93BB2A4BF320773C29C424B1 /* libPods-WeatherApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CDFC284B5F61218DDEDA0F1 /* libPods-WeatherApp.a */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +41,6 @@
 		22E8AAB7222CB50500BE3D63 /* WebServiceUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServiceUtility.swift; sourceTree = "<group>"; };
 		22E8AAB9222D8F5900BE3D63 /* ChartUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartUtility.swift; sourceTree = "<group>"; };
 		22E8AADD222F434800BE3D63 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		5C37FD87224C508100382D94 /* CityPicturesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityPicturesViewController.swift; sourceTree = "<group>"; };
 		5C37FD90224C655000382D94 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		5C37FD91224C655000382D94 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		7836BACD2263B871002553CC /* CurrWeatherServiceUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrWeatherServiceUtility.swift; sourceTree = "<group>"; };
@@ -48,6 +48,8 @@
 		7836BAD12263D09B002553CC /* MusicUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicUtility.swift; sourceTree = "<group>"; };
 		7836BAD42263D425002553CC /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		7836BAD62263D959002553CC /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		78B393A1239CCC5400D37137 /* ItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCollectionViewCell.swift; sourceTree = "<group>"; };
+		78D4769D239DA7EA00307E25 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		D7906B00510F315D30F210BD /* Pods-WeatherApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.release.xcconfig"; path = "Target Support Files/Pods-WeatherApp/Pods-WeatherApp.release.xcconfig"; sourceTree = "<group>"; };
 		DB2AA1BFCEDCA5743CB3CF3E /* Pods-WeatherApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.debug.xcconfig"; path = "Target Support Files/Pods-WeatherApp/Pods-WeatherApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,8 +116,8 @@
 				22E8AAA3222CA0F100BE3D63 /* TableViewController.swift */,
 				22E8AAA1222CA0F100BE3D63 /* WeatherViewController.swift */,
 				22E8AADD222F434800BE3D63 /* SettingViewController.swift */,
-				5C37FD87224C508100382D94 /* CityPicturesViewController.swift */,
 				7836BAD42263D425002553CC /* WebViewController.swift */,
+				78D4769D239DA7EA00307E25 /* CollectionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -128,6 +130,7 @@
 				22E8AAB9222D8F5900BE3D63 /* ChartUtility.swift */,
 				7836BACD2263B871002553CC /* CurrWeatherServiceUtility.swift */,
 				7836BAD12263D09B002553CC /* MusicUtility.swift */,
+				78B393A1239CCC5400D37137 /* ItemCollectionViewCell.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -282,14 +285,15 @@
 				22946FBF2390003600BA1743 /* WeatherApp.xcdatamodeld in Sources */,
 				7836BAD22263D09B002553CC /* MusicUtility.swift in Sources */,
 				22E8AAA4222CA0F100BE3D63 /* TableViewController.swift in Sources */,
+				78D4769E239DA7EA00307E25 /* CollectionViewController.swift in Sources */,
 				22E8AAB8222CB50500BE3D63 /* WebServiceUtility.swift in Sources */,
 				22E8AAA0222CA0F100BE3D63 /* AppDelegate.swift in Sources */,
 				22E8AAA2222CA0F100BE3D63 /* WeatherViewController.swift in Sources */,
-				5C37FD88224C508100382D94 /* CityPicturesViewController.swift in Sources */,
 				7836BAD52263D425002553CC /* WebViewController.swift in Sources */,
 				22E8AABA222D8F5900BE3D63 /* ChartUtility.swift in Sources */,
 				22E8AADE222F434800BE3D63 /* SettingViewController.swift in Sources */,
 				7836BACE2263B871002553CC /* CurrWeatherServiceUtility.swift in Sources */,
+				78B393A2239CCC5400D37137 /* ItemCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,7 +441,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 63DJ93AXXY;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = WeatherApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -456,7 +460,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 63DJ93AXXY;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = WeatherApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
