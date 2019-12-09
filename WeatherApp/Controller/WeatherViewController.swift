@@ -64,6 +64,8 @@ class WeatherViewController: UIViewController,CLLocationManagerDelegate{
         if place != nil {
             addCity(placeId: place.placeID!, name: place.name!, lat: String(place.coordinate.latitude), lng: String(place.coordinate.longitude))
             print("success")
+            
+            showAlert(title: "City added",message: "Successfully added city to favourites")
         }
     }
     
@@ -234,18 +236,18 @@ extension WeatherViewController: GMSAutocompleteResultsViewControllerDelegate {
             packagedWeather in
 
             DispatchQueue.main.sync {
-                self.city.text = packagedWeather["name"] as! String
-                self.main.text = packagedWeather["main"] as! String
-                self.temp.text = packagedWeather["temp"] as! String
-                self.minTemp.text = packagedWeather["min"] as! String
-                self.maxTemp.text = packagedWeather["max"] as! String
-                self.clouds.text = packagedWeather["clouds"] as! String
-                self.humidity.text = packagedWeather["humidity"] as! String
-                self.pressure.text = packagedWeather["pressure"] as! String
-                self.windSp.text = packagedWeather["windSp"] as! String
-                self.windDeg.text = packagedWeather["windDeg"] as! String
-                self.sunrise.text = packagedWeather["sunrise"] as! String
-                self.sunset.text = packagedWeather["sunset"] as! String
+                self.city.text = packagedWeather["name"] as? String
+                self.main.text = packagedWeather["main"] as? String
+                self.temp.text = packagedWeather["temp"] as? String
+                self.minTemp.text = packagedWeather["min"] as? String
+                self.maxTemp.text = packagedWeather["max"] as? String
+                self.clouds.text = packagedWeather["clouds"] as? String
+                self.humidity.text = packagedWeather["humidity"] as? String
+                self.pressure.text = packagedWeather["pressure"] as? String
+                self.windSp.text = packagedWeather["windSp"] as? String
+                self.windDeg.text = packagedWeather["windDeg"] as? String
+                self.sunrise.text = packagedWeather["sunrise"] as? String
+                self.sunset.text = packagedWeather["sunset"] as? String
                 // Set weather icon
                 let fileName = packagedWeather["icon"] as! String
                 let url = URL(string: "https://openweathermap.org/img/w/" + fileName + ".png")
@@ -301,5 +303,15 @@ extension WeatherViewController: GMSAutocompleteResultsViewControllerDelegate {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
-  
+    func showAlert(title:String = "Error", message:String)
+    {
+        DispatchQueue.main.async {
+            // create alert controller
+            let alert = UIAlertController(title:title, message:message, preferredStyle:.alert)
+            // add default button
+            alert.addAction(UIAlertAction(title:"OK", style:.default, handler:nil))
+            // show it
+            self.present(alert, animated:true, completion:nil)
+        }
+    }
 }

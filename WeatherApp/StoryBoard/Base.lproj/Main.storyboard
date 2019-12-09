@@ -191,6 +191,13 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sfd-GA-D9J">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <items>
+                                                    <navigationItem id="UTj-E3-1iG"/>
+                                                </items>
+                                            </navigationBar>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -225,6 +232,7 @@
                                             <constraint firstItem="Dvx-f9-YTO" firstAttribute="leading" secondItem="UDh-j5-2d0" secondAttribute="leading" id="Io1-gF-VEW"/>
                                             <constraint firstItem="wg9-GD-kSa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rUB-Iy-swo" secondAttribute="trailing" constant="8" symbolic="YES" id="JCU-gG-lbB"/>
                                             <constraint firstItem="dPg-R5-hMB" firstAttribute="top" secondItem="F4Q-zB-shc" secondAttribute="bottom" constant="14" id="JGq-mH-VAl"/>
+                                            <constraint firstAttribute="trailing" secondItem="sfd-GA-D9J" secondAttribute="trailing" id="JkD-C0-URT"/>
                                             <constraint firstItem="9i8-ue-xUt" firstAttribute="top" secondItem="TVU-kp-TRj" secondAttribute="bottom" constant="149" id="K1p-NA-f8t"/>
                                             <constraint firstItem="Him-c7-k9X" firstAttribute="leading" secondItem="Dvx-f9-YTO" secondAttribute="trailing" constant="31" id="K43-zI-4h8"/>
                                             <constraint firstItem="nTB-Me-mMT" firstAttribute="top" secondItem="CvE-Ge-xYA" secondAttribute="bottom" constant="15" id="KyO-vC-poI"/>
@@ -239,7 +247,9 @@
                                             <constraint firstAttribute="height" constant="1000" id="R1c-Qg-I7O"/>
                                             <constraint firstItem="Dvx-f9-YTO" firstAttribute="leading" secondItem="nK5-z3-bFq" secondAttribute="leading" id="REq-8q-wpP"/>
                                             <constraint firstAttribute="trailing" secondItem="wpf-YH-FET" secondAttribute="trailing" constant="34" id="RhV-Ms-7oz"/>
+                                            <constraint firstItem="sfd-GA-D9J" firstAttribute="top" secondItem="dvC-SS-bJd" secondAttribute="top" id="SkQ-GX-rpd"/>
                                             <constraint firstAttribute="trailing" secondItem="FL4-T9-dGR" secondAttribute="trailing" constant="34" id="SoR-vj-OhE"/>
+                                            <constraint firstItem="sfd-GA-D9J" firstAttribute="leading" secondItem="dvC-SS-bJd" secondAttribute="leading" id="Tla-0I-qKg"/>
                                             <constraint firstItem="F4Q-zB-shc" firstAttribute="trailing" secondItem="wpf-YH-FET" secondAttribute="trailing" id="TuY-wB-8eu"/>
                                             <constraint firstItem="F4Q-zB-shc" firstAttribute="trailing" secondItem="TWX-1N-kYu" secondAttribute="trailing" id="U8J-fM-sef"/>
                                             <constraint firstItem="x3s-UC-Jox" firstAttribute="leading" secondItem="dvC-SS-bJd" secondAttribute="leading" constant="30" id="UYZ-mB-JLm"/>
@@ -742,26 +752,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="m8z-Pg-VSj">
-                            <size key="itemSize" width="100" height="100"/>
+                            <size key="itemSize" width="150" height="150"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="gIj-xQ-OAf" customClass="ItemCollectionViewCell" customModule="WeatherApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="e6x-HP-LjL">
-                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" id="vef-v4-erk">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
                                 </collectionViewCellContentView>
-                                <size key="customSize" width="100" height="100"/>
+                                <size key="customSize" width="150" height="150"/>
                                 <connections>
                                     <outlet property="imageView" destination="vef-v4-erk" id="LYI-o4-EVM"/>
                                 </connections>
@@ -776,7 +786,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7p5-Sp-hqK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3169" y="1155"/>
+            <point key="canvasLocation" x="3168.8000000000002" y="1154.5727136431785"/>
         </scene>
         <!--City Pictures View Controller-->
         <scene sceneID="bfY-Su-xWt">

@@ -79,7 +79,6 @@ class TableViewController: UIViewController,UITableViewDelegate,UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let row = indexPath.row
         self.performSegue(withIdentifier: "showCollectionSegue", sender: indexPath);
     }
 
