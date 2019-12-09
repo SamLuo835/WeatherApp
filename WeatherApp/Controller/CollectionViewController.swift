@@ -23,10 +23,10 @@ class CollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let collectionViewWidth: CGFloat = collectionView?.frame.width ?? 0
-        let itemWidth = (collectionViewWidth - 2.0 ) / 3.0
+        let itemWidth = (collectionViewWidth - 2.0 ) / 3.5
         let layout = collectionViewFlowLayout
         layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
-            
+        collectionView.setCollectionViewLayout(layout, animated: true)
 //        setupCollectionViewItemsSize()
         updateCollectionView()
         collectionView.reloadData()
@@ -48,11 +48,6 @@ class CollectionViewController: UICollectionViewController {
         
         cell.imageView.image = self.pictures[indexPath.item]
         
-//        let image = #imageLiteral(resourceName: "loadScreen")
-//        let image = UIImage(named: "button1")!
-        
-//        cell.imageView.image = image
-        
         return cell
     }
     
@@ -66,7 +61,6 @@ class CollectionViewController: UICollectionViewController {
             let cityName = city.value(forKey: "name") as? String ?? ""
             let cityPlaceID = city.value(forKey: "placeId") as? String ?? ""
 
-            print(cityName)
             // Specify the place data types to return (in this case, just photos).
             let fields: GMSPlaceField = GMSPlaceField(rawValue: UInt(GMSPlaceField.photos.rawValue))!
 

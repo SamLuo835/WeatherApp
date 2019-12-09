@@ -47,7 +47,7 @@ class SettingViewController: UIViewController {
     
     
     @IBAction func removeTable(sender:UIButton){
-       delegete.deleteAll()
+        delegete.deleteAll()
         showAlert(title: "Delete successful", message: "All favourite cities have been deleted.")
     }
     
