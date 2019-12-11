@@ -22,11 +22,7 @@ class CollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let collectionViewWidth: CGFloat = collectionView?.frame.width ?? 0
-        let itemWidth = (collectionViewWidth - 2.0 ) / 3.5
-        let layout = collectionViewFlowLayout
-        layout.itemSize = CGSize(width: itemWidth, height: itemWidth)
-        collectionView.setCollectionViewLayout(layout, animated: true)
+     
 //        setupCollectionViewItemsSize()
         updateCollectionView()
         collectionView.reloadData()
@@ -51,14 +47,28 @@ class CollectionViewController: UICollectionViewController {
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+       {
+           if segue.identifier == "seguePhoto"
+           {
+               if let vc = segue.destination as? PhotoViewController
+               {
+                   // get tapped cell first
+                   if let cell = sender as? ItemCollectionViewCell
+                   {
+                       // pass image to destination
+                       vc.image = cell.imageView.image
+                   }
+               }
+           }
+       }
+    
     private func updateCollectionView() {
         print("in updateCollectionView")
         placesClient = GMSPlacesClient.shared()
 
         if cities.count > 0 {
-            let mainDelgete = UIApplication.shared.delegate as! AppDelegate
             let city = cities[0]
-            let cityName = city.value(forKey: "name") as? String ?? ""
             let cityPlaceID = city.value(forKey: "placeId") as? String ?? ""
 
             // Specify the place data types to return (in this case, just photos).

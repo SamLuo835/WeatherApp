@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -751,21 +751,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="m8z-Pg-VSj">
-                            <size key="itemSize" width="150" height="150"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="m8z-Pg-VSj">
+                            <size key="itemSize" width="200" height="150"/>
+                            <size key="estimatedItemSize" width="150" height="150"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="gIj-xQ-OAf" customClass="ItemCollectionViewCell" customModule="WeatherApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                <rect key="frame" x="10" y="10" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="e6x-HP-LjL">
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" id="vef-v4-erk">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="vef-v4-erk">
                                             <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -774,6 +775,7 @@
                                 <size key="customSize" width="150" height="150"/>
                                 <connections>
                                     <outlet property="imageView" destination="vef-v4-erk" id="LYI-o4-EVM"/>
+                                    <segue destination="kuS-lK-1Do" kind="show" identifier="seguePhoto" id="Rgo-WR-pjW"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -786,68 +788,53 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7p5-Sp-hqK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3168.8000000000002" y="1154.5727136431785"/>
+            <point key="canvasLocation" x="3433" y="781"/>
         </scene>
-        <!--City Pictures View Controller-->
-        <scene sceneID="bfY-Su-xWt">
+        <!--Photo View Controller-->
+        <scene sceneID="uGW-cX-RGr">
             <objects>
-                <viewController id="hEp-TM-f6y" customClass="CityPicturesViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="T77-fr-wTC">
+                <viewController id="kuS-lK-1Do" customClass="PhotoViewController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JCY-x5-FvI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.40000000596046448" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="baQ-mp-TcX">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Cv-SQ-Pm5">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="City Pictures" id="Ls3-8H-5KO">
-                                        <barButtonItem key="leftBarButtonItem" title="Back" id="p5l-Zy-6zN">
-                                            <connections>
-                                                <segue destination="EcX-6M-m8b" kind="unwind" unwindAction="unwindToFavioriteViewControllerWithSender:" id="dQ8-Bd-Z6O"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Js1-st-Toe">
-                                <rect key="frame" x="12" y="132" width="173" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IAn-uO-MbA">
-                                <rect key="frame" x="187" y="132" width="182" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uWS-Hr-n1O">
-                                <rect key="frame" x="67" y="277" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show city pic " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhj-fZ-Jd1">
-                                <rect key="frame" x="89" y="78" width="196" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="21"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GZl-sO-gRH">
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r9Y-iV-xai">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="574"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="r9Y-iV-xai" secondAttribute="bottom" id="EyW-fF-1XY"/>
+                                    <constraint firstItem="r9Y-iV-xai" firstAttribute="leading" secondItem="GZl-sO-gRH" secondAttribute="leading" id="HAj-3s-Ztx"/>
+                                    <constraint firstAttribute="trailing" secondItem="r9Y-iV-xai" secondAttribute="trailing" id="gWt-eV-4DE"/>
+                                    <constraint firstItem="r9Y-iV-xai" firstAttribute="top" secondItem="GZl-sO-gRH" secondAttribute="top" id="hNp-3z-5MQ"/>
+                                    <constraint firstItem="r9Y-iV-xai" firstAttribute="bottom" secondItem="GjF-7A-73Y" secondAttribute="bottom" id="itI-kX-iwi"/>
+                                    <constraint firstItem="r9Y-iV-xai" firstAttribute="centerX" secondItem="GZl-sO-gRH" secondAttribute="centerX" id="qWe-Hf-iuK"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="3jN-Bd-fUw"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="GjF-7A-73Y"/>
+                            </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="WOh-U2-96j"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="GZl-sO-gRH" firstAttribute="bottom" secondItem="CcT-eP-RUP" secondAttribute="bottom" id="E12-2w-5Xb"/>
+                            <constraint firstItem="GZl-sO-gRH" firstAttribute="top" secondItem="CcT-eP-RUP" secondAttribute="top" id="Ga2-W8-GZO"/>
+                            <constraint firstItem="GZl-sO-gRH" firstAttribute="centerX" secondItem="JCY-x5-FvI" secondAttribute="centerX" id="JXF-3s-9DN"/>
+                            <constraint firstItem="GZl-sO-gRH" firstAttribute="leading" secondItem="CcT-eP-RUP" secondAttribute="leading" id="x9H-dl-UYy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CcT-eP-RUP"/>
                     </view>
-                    <navigationItem key="navigationItem" id="yEf-F2-hwc"/>
+                    <navigationItem key="navigationItem" id="46F-P7-Npg"/>
                     <connections>
-                        <outlet property="firstImg" destination="Js1-st-Toe" id="UjM-j7-YSg"/>
-                        <outlet property="lblCityName" destination="qhj-fZ-Jd1" id="nRy-bS-HK6"/>
-                        <outlet property="secImg" destination="IAn-uO-MbA" id="UxN-QD-1RA"/>
-                        <outlet property="thirdImg" destination="uWS-Hr-n1O" id="faW-ta-X5t"/>
+                        <outlet property="imageView" destination="r9Y-iV-xai" id="c8M-ZJ-bmh"/>
+                        <outlet property="scrollView" destination="GZl-sO-gRH" id="wiP-2H-LeI"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6AH-e8-e6O" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="EcX-6M-m8b" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aC6-dW-N2Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3168.8000000000002" y="387.25637181409297"/>
+            <point key="canvasLocation" x="4565.6000000000004" y="780.35982008995506"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">

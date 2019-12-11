@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2265696623A198A00074D4EF /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2265696523A198A00074D4EF /* PhotoViewController.swift */; };
 		22946FBF2390003600BA1743 /* WeatherApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 22946FBD2390003600BA1743 /* WeatherApp.xcdatamodeld */; };
 		22E8AAA0222CA0F100BE3D63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8AA9F222CA0F100BE3D63 /* AppDelegate.swift */; };
 		22E8AAA2222CA0F100BE3D63 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22E8AAA1222CA0F100BE3D63 /* WeatherViewController.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		1CDFC284B5F61218DDEDA0F1 /* libPods-WeatherApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-WeatherApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2265696523A198A00074D4EF /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		22946FBE2390003600BA1743 /* WeatherApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WeatherApp.xcdatamodel; sourceTree = "<group>"; };
 		22E8AA9C222CA0F100BE3D63 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22E8AA9F222CA0F100BE3D63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				22E8AADD222F434800BE3D63 /* SettingViewController.swift */,
 				7836BAD42263D425002553CC /* WebViewController.swift */,
 				78D4769D239DA7EA00307E25 /* CollectionViewController.swift */,
+				2265696523A198A00074D4EF /* PhotoViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				22E8AADE222F434800BE3D63 /* SettingViewController.swift in Sources */,
 				7836BACE2263B871002553CC /* CurrWeatherServiceUtility.swift in Sources */,
 				78B393A2239CCC5400D37137 /* ItemCollectionViewCell.swift in Sources */,
+				2265696623A198A00074D4EF /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
